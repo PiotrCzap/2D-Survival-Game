@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bdgug64iy3q63" path="res://Scenes/player.tscn" id="1_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://cjem2io41rnsq" path="res://icon.svg" id="2_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://cvij4w6nscqj0" path="res://Scenes/Chunks/grass_chunk.tscn" id="3_wrm1d"]
+[ext_resource type="Script" uid="uid://byi7x4gcnf3jq" path="res://Scripts/Map Generator.gd" id="3_wrm1d"]
 
 [node name="Game" type="Node2D"]
 
@@ -21,17 +21,5 @@ texture = ExtResource("2_wrm1d")
 position = Vector2(155, 316)
 texture = ExtResource("2_wrm1d")
 
-[node name="Grass Chunk" parent="." instance=ExtResource("3_wrm1d")]
-z_index = -1
-
-[node name="Grass Chunk2" parent="." instance=ExtResource("3_wrm1d")]
-z_index = -1
-position = Vector2(0, -528)
-
-[node name="Grass Chunk3" parent="." instance=ExtResource("3_wrm1d")]
-z_index = -1
-position = Vector2(-528, 0)
-
-[node name="Grass Chunk4" parent="." instance=ExtResource("3_wrm1d")]
-z_index = -1
-position = Vector2(-528, -528)
+[node name="Map Generator" type="Node2D" parent="."]
+script = ExtResource("3_wrm1d")
