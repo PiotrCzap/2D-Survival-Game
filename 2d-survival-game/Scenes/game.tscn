@@ -23,3 +23,5 @@ texture = ExtResource("2_wrm1d")
 
 [node name="Map Generator" type="Node2D" parent="."]
 script = ExtResource("3_wrm1d")
+
+[node name="Map" type="Node2D" parent="."]
