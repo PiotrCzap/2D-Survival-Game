@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://vlyqpppayxjp"]
+
+[ext_resource type="Script" uid="uid://ee8kluncd4mg" path="res://Scripts/slot.gd" id="1_67ou1"]
+[ext_resource type="Texture2D" uid="uid://ccspurdxgsuv2" path="res://Textures/Inventory Slot.png" id="2_c828r"]
+
+[node name="Slot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_67ou1")
+
+[node name="Slot Texture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_c828r")

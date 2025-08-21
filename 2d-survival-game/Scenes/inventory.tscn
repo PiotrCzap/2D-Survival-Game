@@ -1,25 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3ek3ri1oj75k"]
+[gd_scene load_steps=13 format=3 uid="uid://c3ek3ri1oj75k"]
 
+[ext_resource type="Script" uid="uid://xia02ssniqx0" path="res://Scripts/inventory.gd" id="1_0n8tc"]
 [ext_resource type="Texture2D" uid="uid://bgphdjscs334f" path="res://Textures/Inventory background.png" id="1_wdn4f"]
 [ext_resource type="LabelSettings" uid="uid://b032rqydghyga" path="res://Label Settings.tres" id="2_k5gp2"]
+[ext_resource type="PackedScene" uid="uid://vlyqpppayxjp" path="res://Scenes/slot.tscn" id="3_yxepq"]
+[ext_resource type="Texture2D" uid="uid://b11p07tv3f8sn" path="res://Textures/Oak Log.png" id="5_k1vlg"]
+[ext_resource type="Texture2D" uid="uid://cws4527jn7y8o" path="res://Textures/Stick.png" id="6_c5ffv"]
+[ext_resource type="Texture2D" uid="uid://cnqbyswouktcv" path="res://Textures/Apple.png" id="7_5qg7d"]
+[ext_resource type="Texture2D" uid="uid://byet8hdw4bpkh" path="res://Textures/Inventory Sections Buttons/Materials Section/Materials Inventory Button.png" id="7_trvqw"]
+[ext_resource type="Texture2D" uid="uid://qpq37xv3i7aq" path="res://Textures/Inventory Sections Buttons/Materials Section/Materials Inventory Button pressed.png" id="8_aqnmd"]
+[ext_resource type="Texture2D" uid="uid://cdwyngtpl3pae" path="res://Textures/Blueberry.png" id="8_bvt08"]
+[ext_resource type="Texture2D" uid="uid://x4hucgnyb2h1" path="res://Textures/Inventory Sections Buttons/Food Section/Food Inventory Button.png" id="9_aqnmd"]
+[ext_resource type="Texture2D" uid="uid://b0xvubrt1v7ps" path="res://Textures/Inventory Sections Buttons/Food Section/Food Inventory Button Pressed.png" id="10_o4ksx"]
 
 [node name="Inventory" type="Control"]
+z_index = 100
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+script = ExtResource("1_0n8tc")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1024.0
-offset_bottom = -584.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 4.0
+offset_right = 136.0
+offset_bottom = 61.0
 texture = ExtResource("1_wdn4f")
 patch_margin_left = 5
 patch_margin_top = 5
@@ -28,10 +32,456 @@ patch_margin_bottom = 5
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 48.0
+offset_left = 55.0
 offset_top = 2.0
-offset_right = 146.0
+offset_right = 153.0
 offset_bottom = 25.0
 scale = Vector2(0.3, 0.3)
 text = "INVENTORY"
 label_settings = ExtResource("2_k5gp2")
+
+[node name="Materials Section" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Oak Log Slot" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 8.0
+offset_bottom = 9.0
+
+[node name="Oak Log" type="TextureRect" parent="Materials Section/Oak Log Slot"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 33.0
+offset_bottom = 33.0
+texture = ExtResource("5_k1vlg")
+
+[node name="Oak Log Quantity" type="Label" parent="Materials Section/Oak Log Slot"]
+layout_mode = 0
+offset_left = 13.3333
+offset_top = 26.6667
+offset_right = 46.3333
+offset_bottom = 42.6667
+scale = Vector2(0.7, 0.7)
+text = "0"
+label_settings = ExtResource("2_k5gp2")
+horizontal_alignment = 2
+
+[node name="Stick Slot" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 9.0
+offset_right = 24.0
+offset_bottom = 9.0
+
+[node name="Stick" type="TextureRect" parent="Materials Section/Stick Slot"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 33.0
+offset_bottom = 33.0
+texture = ExtResource("6_c5ffv")
+
+[node name="Stick Quantity" type="Label" parent="Materials Section/Stick Slot"]
+layout_mode = 0
+offset_left = 13.3333
+offset_top = 26.6667
+offset_right = 46.3333
+offset_bottom = 42.6667
+scale = Vector2(0.7, 0.7)
+text = "0"
+label_settings = ExtResource("2_k5gp2")
+horizontal_alignment = 2
+
+[node name="Slot3" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 9.0
+offset_right = 40.0
+offset_bottom = 9.0
+
+[node name="Slot4" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 56.0
+offset_top = 9.0
+offset_right = 56.0
+offset_bottom = 9.0
+
+[node name="Slot5" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 9.0
+offset_right = 72.0
+offset_bottom = 9.0
+
+[node name="Slot6" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 9.0
+offset_right = 88.0
+offset_bottom = 9.0
+
+[node name="Slot7" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 104.0
+offset_top = 9.0
+offset_right = 104.0
+offset_bottom = 9.0
+
+[node name="Slot8" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 120.0
+offset_top = 9.0
+offset_right = 120.0
+offset_bottom = 9.0
+
+[node name="Slot9" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 25.0
+offset_right = 8.0
+offset_bottom = 25.0
+
+[node name="Slot10" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 25.0
+offset_right = 24.0
+offset_bottom = 25.0
+
+[node name="Slot11" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 25.0
+offset_right = 40.0
+offset_bottom = 25.0
+
+[node name="Slot12" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 56.0
+offset_top = 25.0
+offset_right = 56.0
+offset_bottom = 25.0
+
+[node name="Slot13" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 25.0
+offset_right = 72.0
+offset_bottom = 25.0
+
+[node name="Slot14" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 25.0
+offset_right = 88.0
+offset_bottom = 25.0
+
+[node name="Slot15" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 104.0
+offset_top = 25.0
+offset_right = 104.0
+offset_bottom = 25.0
+
+[node name="Slot16" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 120.0
+offset_top = 25.0
+offset_right = 120.0
+offset_bottom = 25.0
+
+[node name="Slot17" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 41.0
+offset_right = 8.0
+offset_bottom = 41.0
+
+[node name="Slot18" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 24.0
+offset_bottom = 41.0
+
+[node name="Slot19" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 41.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Slot20" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 56.0
+offset_top = 41.0
+offset_right = 56.0
+offset_bottom = 41.0
+
+[node name="Slot21" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 41.0
+offset_right = 72.0
+offset_bottom = 41.0
+
+[node name="Slot22" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 41.0
+offset_right = 88.0
+offset_bottom = 41.0
+
+[node name="Slot23" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 104.0
+offset_top = 41.0
+offset_right = 104.0
+offset_bottom = 41.0
+
+[node name="Slot24" parent="Materials Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 120.0
+offset_top = 41.0
+offset_right = 120.0
+offset_bottom = 41.0
+
+[node name="Food Section" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Apple Slot" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 8.0
+offset_bottom = 9.0
+
+[node name="Apple" type="TextureRect" parent="Food Section/Apple Slot"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 33.0
+offset_bottom = 33.0
+texture = ExtResource("7_5qg7d")
+
+[node name="Apple Quantity" type="Label" parent="Food Section/Apple Slot"]
+layout_mode = 0
+offset_left = 6.66667
+offset_top = 26.6667
+offset_right = 46.6667
+offset_bottom = 49.6667
+scale = Vector2(0.7, 0.7)
+text = "0"
+label_settings = ExtResource("2_k5gp2")
+horizontal_alignment = 2
+
+[node name="Blueberry Slot" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 9.0
+offset_right = 24.0
+offset_bottom = 9.0
+
+[node name="Blueberry" type="TextureRect" parent="Food Section/Blueberry Slot"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 33.0
+offset_bottom = 33.0
+texture = ExtResource("8_bvt08")
+
+[node name="Blueberry Quantity" type="Label" parent="Food Section/Blueberry Slot"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 27.0
+offset_right = 41.0
+offset_bottom = 43.0
+scale = Vector2(0.7, 0.7)
+text = "0"
+label_settings = ExtResource("2_k5gp2")
+horizontal_alignment = 2
+
+[node name="Slot3" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 9.0
+offset_right = 40.0
+offset_bottom = 9.0
+
+[node name="Slot4" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 56.0
+offset_top = 9.0
+offset_right = 56.0
+offset_bottom = 9.0
+
+[node name="Slot5" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 9.0
+offset_right = 72.0
+offset_bottom = 9.0
+
+[node name="Slot6" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 9.0
+offset_right = 88.0
+offset_bottom = 9.0
+
+[node name="Slot7" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 104.0
+offset_top = 9.0
+offset_right = 104.0
+offset_bottom = 9.0
+
+[node name="Slot8" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 120.0
+offset_top = 9.0
+offset_right = 120.0
+offset_bottom = 9.0
+
+[node name="Slot9" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 25.0
+offset_right = 8.0
+offset_bottom = 25.0
+
+[node name="Slot10" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 25.0
+offset_right = 24.0
+offset_bottom = 25.0
+
+[node name="Slot11" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 25.0
+offset_right = 40.0
+offset_bottom = 25.0
+
+[node name="Slot12" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 56.0
+offset_top = 25.0
+offset_right = 56.0
+offset_bottom = 25.0
+
+[node name="Slot13" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 25.0
+offset_right = 72.0
+offset_bottom = 25.0
+
+[node name="Slot14" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 25.0
+offset_right = 88.0
+offset_bottom = 25.0
+
+[node name="Slot15" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 104.0
+offset_top = 25.0
+offset_right = 104.0
+offset_bottom = 25.0
+
+[node name="Slot16" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 120.0
+offset_top = 25.0
+offset_right = 120.0
+offset_bottom = 25.0
+
+[node name="Slot17" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 41.0
+offset_right = 8.0
+offset_bottom = 41.0
+
+[node name="Slot18" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 24.0
+offset_bottom = 41.0
+
+[node name="Slot19" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 41.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Slot20" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 56.0
+offset_top = 41.0
+offset_right = 56.0
+offset_bottom = 41.0
+
+[node name="Slot21" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 41.0
+offset_right = 72.0
+offset_bottom = 41.0
+
+[node name="Slot22" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 41.0
+offset_right = 88.0
+offset_bottom = 41.0
+
+[node name="Slot23" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 104.0
+offset_top = 41.0
+offset_right = 104.0
+offset_bottom = 41.0
+
+[node name="Slot24" parent="Food Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 120.0
+offset_top = 41.0
+offset_right = 120.0
+offset_bottom = 41.0
+
+[node name="Materials" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 2.0
+offset_right = 25.0
+offset_bottom = 18.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("7_trvqw")
+texture_pressed = ExtResource("8_aqnmd")
+
+[node name="Food" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 2.0
+offset_right = 32.0
+offset_bottom = 18.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("9_aqnmd")
+texture_pressed = ExtResource("10_o4ksx")
+
+[connection signal="pressed" from="Materials" to="." method="_on_materials_pressed"]
+[connection signal="pressed" from="Food" to="." method="_on_food_pressed"]
