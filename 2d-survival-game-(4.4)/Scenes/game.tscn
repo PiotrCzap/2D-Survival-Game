@@ -1,0 +1,1159 @@
+[gd_scene load_steps=19 format=3 uid="uid://diepu7fn8fqqn"]
+
+[ext_resource type="PackedScene" uid="uid://bdgug64iy3q63" path="res://Scenes/player.tscn" id="1_qxrlw"]
+[ext_resource type="Script" uid="uid://h53tkbkri4ng" path="res://Scripts/inventory_ui.gd" id="2_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://cjem2io41rnsq" path="res://icon.svg" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://cvij4w6nscqj0" path="res://Scenes/Chunks/grass_chunk.tscn" id="3_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://cacmsybbmqqjx" path="res://Textures/Empty Health Progress Bar.png" id="4_ldgsr"]
+[ext_resource type="Texture2D" uid="uid://yyjd2fs3a38r" path="res://Textures/Map Tilemap.png" id="4_wowpa"]
+[ext_resource type="Texture2D" uid="uid://bv0qxbhfvubea" path="res://Textures/Health Progress Bar.png" id="5_o5yvi"]
+[ext_resource type="PackedScene" uid="uid://ddx8bq2yw0cer" path="res://Scenes/tree.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://c3ek3ri1oj75k" path="res://Scenes/inventory.tscn" id="6_i6g32"]
+[ext_resource type="Script" uid="uid://cky80yox6wld" path="res://Scripts/HP Progress Bar.gd" id="6_nb51f"]
+[ext_resource type="Texture2D" uid="uid://cmjjqv4arkpxe" path="res://Textures/Level Progress Bar.png" id="6_o5yvi"]
+[ext_resource type="LabelSettings" uid="uid://b032rqydghyga" path="res://Label Settings.tres" id="6_rfjv2"]
+[ext_resource type="Texture2D" uid="uid://b7fivttgnc4ua" path="res://Textures/Jedzenie Progress Bar.png" id="7_rku1e"]
+[ext_resource type="PackedScene" uid="uid://d3cnfb4kad83p" path="res://Scenes/blueberry_bush.tscn" id="7_v158k"]
+[ext_resource type="Script" uid="uid://d183bmj4m3osl" path="res://Scripts/Level Progress Bar.gd" id="9_nnt18"]
+[ext_resource type="Script" uid="uid://c5piu78b0q2ws" path="res://Scripts/hunger_progress_bar.gd" id="11_nnt18"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dryh"]
+texture = ExtResource("4_wowpa")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wowpa"]
+sources/0 = SubResource("TileSetAtlasSource_3dryh")
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_qxrlw")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(5, 5)
+position_smoothing_speed = 50.0
+
+[node name="Inventory UI" type="Node2D" parent="Player"]
+z_index = 100
+script = ExtResource("2_1l0tm")
+
+[node name="Inventory" parent="Player/Inventory UI" instance=ExtResource("6_i6g32")]
+offset_left = -63.0
+offset_top = -30.0
+offset_right = -63.0
+offset_bottom = -30.0
+
+[node name="Health Progress Bar" type="TextureProgressBar" parent="Player"]
+z_index = 4096
+offset_left = -113.0
+offset_top = -61.0
+offset_right = -13.0
+offset_bottom = -53.0
+scale = Vector2(0.6, 0.6)
+value = 100.0
+texture_under = ExtResource("4_ldgsr")
+texture_progress = ExtResource("5_o5yvi")
+script = ExtResource("6_nb51f")
+
+[node name="Label" type="Label" parent="Player/Health Progress Bar"]
+layout_mode = 0
+offset_left = 1.66667
+offset_top = 1.66667
+offset_right = 49.6667
+offset_bottom = 17.6667
+scale = Vector2(0.25, 0.25)
+text = "HEALTH"
+label_settings = ExtResource("6_rfjv2")
+
+[node name="Level Progress Bar" type="TextureProgressBar" parent="Player"]
+z_index = 4096
+offset_left = -113.0
+offset_top = -53.0
+offset_right = -13.0
+offset_bottom = -45.0
+scale = Vector2(0.6, 0.6)
+texture_under = ExtResource("4_ldgsr")
+texture_progress = ExtResource("6_o5yvi")
+script = ExtResource("9_nnt18")
+
+[node name="Label" type="Label" parent="Player/Level Progress Bar"]
+layout_mode = 0
+offset_left = 1.66667
+offset_top = 1.66667
+offset_right = 49.6667
+offset_bottom = 24.6667
+scale = Vector2(0.25, 0.25)
+text = "LEVEL"
+label_settings = ExtResource("6_rfjv2")
+
+[node name="Hunger Progress Bar" type="TextureProgressBar" parent="Player"]
+z_index = 4096
+offset_left = -113.0
+offset_top = -45.0
+offset_right = -13.0
+offset_bottom = -37.0
+scale = Vector2(0.6, 0.6)
+value = 100.0
+texture_under = ExtResource("4_ldgsr")
+texture_progress = ExtResource("7_rku1e")
+script = ExtResource("11_nnt18")
+
+[node name="Label2" type="Label" parent="Player/Hunger Progress Bar"]
+layout_mode = 0
+offset_left = 1.66667
+offset_top = 1.66667
+offset_right = 57.6667
+offset_bottom = 24.6667
+scale = Vector2(0.25, 0.25)
+text = "HUNGER"
+label_settings = ExtResource("6_rfjv2")
+
+[node name="Timer" type="Timer" parent="Player/Hunger Progress Bar"]
+process_callback = 0
+wait_time = 5.0
+autostart = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(582, -110)
+texture = ExtResource("2_wrm1d")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(155, 316)
+texture = ExtResource("2_wrm1d")
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Overworld" type="Node2D" parent="Map"]
+
+[node name="Grass Chunks" type="Node2D" parent="Map/Overworld"]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk2" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk3" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk4" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk5" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk6" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk7" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk8" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk9" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk10" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk11" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk12" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk13" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk14" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk15" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk16" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, 0)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk17" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk18" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk19" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk20" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk21" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk22" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk23" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk24" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk25" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk26" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk27" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk28" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk29" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk30" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk31" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk32" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, -512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk33" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk34" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk35" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk36" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk37" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk38" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk39" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk40" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk41" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk42" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk43" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk44" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk45" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk46" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk47" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk48" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, -1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk49" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk50" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk51" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk52" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk53" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk54" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk55" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk56" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk57" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk58" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk59" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk60" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk61" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk62" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk63" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk64" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, -1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk65" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk66" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk67" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk68" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk69" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk70" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk71" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk72" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk73" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk74" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk75" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk76" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk77" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk78" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk79" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk80" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, -2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk81" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk82" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk83" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk84" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk85" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk86" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk87" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk88" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk89" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk90" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk91" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk92" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk93" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk94" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk95" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk96" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, -2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk97" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk98" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk99" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk100" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk101" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk102" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk103" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk104" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk105" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk106" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk107" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk108" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk109" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk110" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk111" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk112" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, -3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk113" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk114" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk115" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk116" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk117" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk118" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk119" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk120" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk121" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk122" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk123" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk124" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk125" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk126" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk127" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk128" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, -3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk145" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk146" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk147" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk148" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk149" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk150" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk151" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk152" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk153" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk154" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk155" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk156" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk157" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk158" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk159" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk160" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, 3584)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk161" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk162" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk163" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk164" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk165" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk166" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk167" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk168" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk169" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk170" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk171" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk172" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk173" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk174" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk175" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk176" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, 3072)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk177" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk178" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk179" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk180" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk181" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk182" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk183" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk184" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk185" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk186" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk187" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk188" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk189" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk190" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk191" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk192" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, 2560)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk193" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk194" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk195" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk196" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk197" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk198" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk199" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk200" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk201" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk202" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk203" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk204" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk205" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk206" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk207" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk208" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk209" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk210" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk211" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk212" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk213" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk214" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk215" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk216" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk217" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk218" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk219" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk220" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk221" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk222" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk223" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk224" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, 1536)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk225" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk226" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk227" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk228" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk229" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk230" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk231" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk232" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk233" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk234" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk235" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk236" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk237" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk238" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk239" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk240" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, 1024)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk241" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(0, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk242" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(512, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk243" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1024, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk244" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(1536, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk245" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2048, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk246" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(2560, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk247" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3072, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk248" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(3584, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk249" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-4096, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk250" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3584, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk251" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-3072, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk252" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2560, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk253" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-2048, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk254" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1536, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk255" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-1024, 512)
+metadata/_edit_lock_ = true
+
+[node name="Grass Chunk256" parent="Map/Overworld/Grass Chunks" instance=ExtResource("3_wrm1d")]
+position = Vector2(-512, 512)
+metadata/_edit_lock_ = true
+
+[node name="Trees" type="Node2D" parent="Map/Overworld"]
+
+[node name="Tree" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(16, -8)
+
+[node name="Tree2" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(-16, -48)
+
+[node name="Tree3" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(-55, 15)
+
+[node name="Tree4" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(-40, -40)
+
+[node name="Tree5" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(-16, 32)
+
+[node name="Tree6" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(112, -24)
+
+[node name="Tree7" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(80, -64)
+
+[node name="Tree8" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(40, 0)
+
+[node name="Tree9" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(56, -56)
+
+[node name="Tree10" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(80, 16)
+
+[node name="Tree11" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(-64, -104)
+
+[node name="Tree12" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(-96, -144)
+
+[node name="Tree13" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(-136, -80)
+
+[node name="Tree14" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(-120, -136)
+
+[node name="Tree15" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(-96, -64)
+
+[node name="Tree16" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(32, -120)
+
+[node name="Tree17" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(0, -160)
+
+[node name="Tree18" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(-40, -96)
+
+[node name="Tree19" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(-24, -152)
+
+[node name="Tree20" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
+position = Vector2(0, -80)
+
+[node name="Blueberry Bush" parent="Map" instance=ExtResource("7_v158k")]
+position = Vector2(-93, -7)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_wowpa")
+
+[connection signal="timeout" from="Player/Hunger Progress Bar/Timer" to="Player/Hunger Progress Bar" method="_on_timer_timeout"]

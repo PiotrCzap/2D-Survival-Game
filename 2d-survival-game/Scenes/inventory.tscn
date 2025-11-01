@@ -1,23 +1,42 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3ek3ri1oj75k"]
+[gd_scene load_steps=20 format=3 uid="uid://c3ek3ri1oj75k"]
 
 [ext_resource type="Script" uid="uid://xia02ssniqx0" path="res://Scripts/inventory.gd" id="1_0n8tc"]
 [ext_resource type="Texture2D" uid="uid://bgphdjscs334f" path="res://Textures/Inventory background.png" id="1_wdn4f"]
+[ext_resource type="Script" uid="uid://bowrft8grs1hl" path="res://Scripts/item_info_manager.gd" id="2_2rjgx"]
 [ext_resource type="LabelSettings" uid="uid://b032rqydghyga" path="res://Label Settings.tres" id="2_k5gp2"]
 [ext_resource type="PackedScene" uid="uid://vlyqpppayxjp" path="res://Scenes/slot.tscn" id="3_yxepq"]
 [ext_resource type="Texture2D" uid="uid://b11p07tv3f8sn" path="res://Textures/Oak Log.png" id="5_k1vlg"]
 [ext_resource type="Texture2D" uid="uid://cws4527jn7y8o" path="res://Textures/Stick.png" id="6_c5ffv"]
+[ext_resource type="Texture2D" uid="uid://dxihik3bg0gcb" path="res://Textures/Item Info.png" id="6_mgnjo"]
 [ext_resource type="Texture2D" uid="uid://cnqbyswouktcv" path="res://Textures/Apple.png" id="7_5qg7d"]
 [ext_resource type="Texture2D" uid="uid://byet8hdw4bpkh" path="res://Textures/Inventory Sections Buttons/Materials Section/Materials Inventory Button.png" id="7_trvqw"]
 [ext_resource type="Texture2D" uid="uid://qpq37xv3i7aq" path="res://Textures/Inventory Sections Buttons/Materials Section/Materials Inventory Button pressed.png" id="8_aqnmd"]
 [ext_resource type="Texture2D" uid="uid://cdwyngtpl3pae" path="res://Textures/Blueberry.png" id="8_bvt08"]
+[ext_resource type="Script" uid="uid://bue3f60xthsn1" path="res://Scripts/food_system_manager.gd" id="9_074r3"]
 [ext_resource type="Texture2D" uid="uid://x4hucgnyb2h1" path="res://Textures/Inventory Sections Buttons/Food Section/Food Inventory Button.png" id="9_aqnmd"]
+[ext_resource type="Texture2D" uid="uid://cnaelrwkvpoto" path="res://Textures/Plank.png" id="9_q5cdx"]
 [ext_resource type="Texture2D" uid="uid://b0xvubrt1v7ps" path="res://Textures/Inventory Sections Buttons/Food Section/Food Inventory Button Pressed.png" id="10_o4ksx"]
+[ext_resource type="Texture2D" uid="uid://chsmggu2gvvfw" path="res://Textures/Axe1.png" id="13_32ipq"]
+[ext_resource type="Texture2D" uid="uid://ptrl5d44qbo0" path="res://Textures/Inventory Sections Buttons/Tools Section/Tools Section Button1.png" id="17_r01aq"]
+[ext_resource type="Texture2D" uid="uid://8djf4ylelwba" path="res://Textures/Inventory Sections Buttons/Tools Section/Tools Section Button2.png" id="19_18ikp"]
 
 [node name="Inventory" type="Control"]
 z_index = 100
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_0n8tc")
+
+[node name="Item Info Manager" type="Control" parent="." node_paths=PackedStringArray("oak_log_item_info", "Stick_item_info", "Plank_item_info", "Wooden_Axe_item_info", "Apple_item_info", "Blueberry_item_info")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_2rjgx")
+oak_log_item_info = NodePath("../Materials Section/Oak Log Slot/Item Info")
+Stick_item_info = NodePath("../Materials Section/Stick Slot/Item Info")
+Plank_item_info = NodePath("../Materials Section/Planks Slot/Item Info")
+Wooden_Axe_item_info = NodePath("../Tools Section/Wooden Axe Slot/Item Info")
+Apple_item_info = NodePath("../Food Section/Apple Slot/Item Info")
+Blueberry_item_info = NodePath("../Food Section/Blueberry Slot/Item Info")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -61,16 +80,59 @@ offset_right = 33.0
 offset_bottom = 33.0
 texture = ExtResource("5_k1vlg")
 
+[node name="Oak Log Button" type="TextureButton" parent="Materials Section/Oak Log Slot/Oak Log"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.269
+anchor_top = -0.269
+anchor_right = 1.269
+anchor_bottom = 1.269
+offset_left = -0.0060019493
+offset_top = -0.006000042
+offset_right = 0.0060043335
+offset_bottom = 0.0059928894
+
 [node name="Oak Log Quantity" type="Label" parent="Materials Section/Oak Log Slot"]
 layout_mode = 0
-offset_left = 13.3333
-offset_top = 26.6667
-offset_right = 46.3333
-offset_bottom = 42.6667
+offset_left = 12.999998
+offset_top = 27.0
+offset_right = 46.0
+offset_bottom = 43.0
 scale = Vector2(0.7, 0.7)
 text = "0"
 label_settings = ExtResource("2_k5gp2")
 horizontal_alignment = 2
+
+[node name="Item Info" type="Control" parent="Materials Section/Oak Log Slot"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Materials Section/Oak Log Slot/Item Info"]
+z_index = 320
+layout_mode = 0
+offset_left = 43.0
+offset_top = 7.0
+offset_right = 83.0
+offset_bottom = 30.0
+texture = ExtResource("6_mgnjo")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="Materials Section/Oak Log Slot/Item Info/NinePatchRect"]
+z_index = 85
+layout_mode = 0
+offset_left = 3.66666
+offset_top = 3.0
+offset_right = 74.6667
+offset_bottom = 19.0
+scale = Vector2(0.3, 0.3)
+text = "Wood Log"
+label_settings = ExtResource("2_k5gp2")
 
 [node name="Stick Slot" parent="Materials Section" instance=ExtResource("3_yxepq")]
 layout_mode = 1
@@ -81,11 +143,18 @@ offset_bottom = 9.0
 
 [node name="Stick" type="TextureRect" parent="Materials Section/Stick Slot"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 33.0
-offset_bottom = 33.0
+offset_left = 6.66667
+offset_top = 6.66667
+offset_right = 32.6667
+offset_bottom = 32.6667
 texture = ExtResource("6_c5ffv")
+
+[node name="Stick Button" type="TextureButton" parent="Materials Section/Stick Slot/Stick"]
+layout_mode = 0
+offset_left = -6.666664
+offset_top = -6.666668
+offset_right = 33.333336
+offset_bottom = 33.333332
 
 [node name="Stick Quantity" type="Label" parent="Materials Section/Stick Slot"]
 layout_mode = 0
@@ -98,12 +167,100 @@ text = "0"
 label_settings = ExtResource("2_k5gp2")
 horizontal_alignment = 2
 
-[node name="Slot3" parent="Materials Section" instance=ExtResource("3_yxepq")]
+[node name="Item Info" type="Control" parent="Materials Section/Stick Slot"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Materials Section/Stick Slot/Item Info"]
+z_index = 320
+layout_mode = 0
+offset_left = 43.0
+offset_top = 7.0
+offset_right = 83.0
+offset_bottom = 30.0
+texture = ExtResource("6_mgnjo")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="Materials Section/Stick Slot/Item Info/NinePatchRect"]
+z_index = 85
+layout_mode = 0
+offset_left = 3.66666
+offset_top = 3.0
+offset_right = 74.6667
+offset_bottom = 19.0
+scale = Vector2(0.3, 0.3)
+text = "Stick"
+label_settings = ExtResource("2_k5gp2")
+
+[node name="Planks Slot" parent="Materials Section" instance=ExtResource("3_yxepq")]
 layout_mode = 1
 offset_left = 40.0
 offset_top = 9.0
 offset_right = 40.0
 offset_bottom = 9.0
+
+[node name="Plank" type="TextureRect" parent="Materials Section/Planks Slot"]
+layout_mode = 0
+offset_left = 6.6666718
+offset_top = 6.666664
+offset_right = 33.33333
+offset_bottom = 33.333332
+texture = ExtResource("9_q5cdx")
+
+[node name="Plank Button" type="TextureButton" parent="Materials Section/Planks Slot/Plank"]
+layout_mode = 0
+offset_left = -6.6666665
+offset_top = -6.666663
+offset_right = 33.333332
+offset_bottom = 33.333336
+
+[node name="Planks Quantity" type="Label" parent="Materials Section/Planks Slot"]
+layout_mode = 0
+offset_left = 13.3333
+offset_top = 26.6667
+offset_right = 46.3333
+offset_bottom = 42.6667
+scale = Vector2(0.7, 0.7)
+text = "0"
+label_settings = ExtResource("2_k5gp2")
+horizontal_alignment = 2
+
+[node name="Item Info" type="Control" parent="Materials Section/Planks Slot"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Materials Section/Planks Slot/Item Info"]
+z_index = 320
+layout_mode = 0
+offset_left = 43.0
+offset_top = 7.0
+offset_right = 83.0
+offset_bottom = 30.0
+texture = ExtResource("6_mgnjo")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="Materials Section/Planks Slot/Item Info/NinePatchRect"]
+z_index = 85
+layout_mode = 0
+offset_left = 3.66666
+offset_top = 3.0
+offset_right = 74.6667
+offset_bottom = 19.0
+scale = Vector2(0.3, 0.3)
+text = "Plank"
+label_settings = ExtResource("2_k5gp2")
 
 [node name="Slot4" parent="Materials Section" instance=ExtResource("3_yxepq")]
 layout_mode = 1
@@ -257,6 +414,9 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Food System Manager" type="Node" parent="Food Section"]
+script = ExtResource("9_074r3")
+
 [node name="Apple Slot" parent="Food Section" instance=ExtResource("3_yxepq")]
 layout_mode = 1
 offset_left = 8.0
@@ -283,6 +443,42 @@ text = "0"
 label_settings = ExtResource("2_k5gp2")
 horizontal_alignment = 2
 
+[node name="Apple Eat Button" type="TextureButton" parent="Food Section/Apple Slot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Item Info" type="Control" parent="Food Section/Apple Slot"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Food Section/Apple Slot/Item Info"]
+z_index = 320
+layout_mode = 0
+offset_left = 43.0
+offset_top = 7.0
+offset_right = 83.0
+offset_bottom = 30.0
+texture = ExtResource("6_mgnjo")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="Food Section/Apple Slot/Item Info/NinePatchRect"]
+z_index = 85
+layout_mode = 0
+offset_left = 3.66666
+offset_top = 3.0
+offset_right = 74.6667
+offset_bottom = 19.0
+scale = Vector2(0.3, 0.3)
+text = "Apple"
+label_settings = ExtResource("2_k5gp2")
+
 [node name="Blueberry Slot" parent="Food Section" instance=ExtResource("3_yxepq")]
 layout_mode = 1
 offset_left = 24.0
@@ -308,6 +504,42 @@ scale = Vector2(0.7, 0.7)
 text = "0"
 label_settings = ExtResource("2_k5gp2")
 horizontal_alignment = 2
+
+[node name="Blueberry Eat Button" type="TextureButton" parent="Food Section/Blueberry Slot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Item Info" type="Control" parent="Food Section/Blueberry Slot"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Food Section/Blueberry Slot/Item Info"]
+z_index = 320
+layout_mode = 0
+offset_left = 43.0
+offset_top = 7.0
+offset_right = 83.0
+offset_bottom = 30.0
+texture = ExtResource("6_mgnjo")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="Food Section/Blueberry Slot/Item Info/NinePatchRect"]
+z_index = 85
+layout_mode = 0
+offset_left = 3.66666
+offset_top = 3.0
+offset_right = 74.6667
+offset_bottom = 19.0
+scale = Vector2(0.3, 0.3)
+text = "Blueberry"
+label_settings = ExtResource("2_k5gp2")
 
 [node name="Slot3" parent="Food Section" instance=ExtResource("3_yxepq")]
 layout_mode = 1
@@ -463,6 +695,236 @@ offset_top = 41.0
 offset_right = 120.0
 offset_bottom = 41.0
 
+[node name="Tools Section" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Wooden Axe Slot" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 8.0
+offset_bottom = 9.0
+
+[node name="Wooden Axe" type="TextureRect" parent="Tools Section/Wooden Axe Slot"]
+layout_mode = 0
+offset_left = 6.6666665
+offset_top = 6.666664
+offset_right = 33.333332
+offset_bottom = 33.33333
+texture = ExtResource("13_32ipq")
+
+[node name="Wooden Axe Button" type="TextureButton" parent="Tools Section/Wooden Axe Slot/Wooden Axe"]
+layout_mode = 0
+offset_left = -6.6666665
+offset_top = -6.666663
+offset_right = 33.333332
+offset_bottom = 33.333336
+
+[node name="Wooden Axe Quantity" type="Label" parent="Tools Section/Wooden Axe Slot"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 26.666664
+offset_right = 39.0
+offset_bottom = 42.666664
+scale = Vector2(0.7, 0.7)
+text = "0"
+label_settings = ExtResource("2_k5gp2")
+
+[node name="Item Info" type="Control" parent="Tools Section/Wooden Axe Slot"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Tools Section/Wooden Axe Slot/Item Info"]
+z_index = 320
+layout_mode = 0
+offset_left = 43.0
+offset_top = 7.0
+offset_right = 83.0
+offset_bottom = 30.0
+texture = ExtResource("6_mgnjo")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="Tools Section/Wooden Axe Slot/Item Info/NinePatchRect"]
+z_index = 85
+layout_mode = 0
+offset_left = 3.66666
+offset_top = 3.0
+offset_right = 74.6667
+offset_bottom = 19.0
+scale = Vector2(0.3, 0.3)
+text = "Wooden Axe"
+label_settings = ExtResource("2_k5gp2")
+
+[node name="Slot2" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 9.0
+offset_right = 24.0
+offset_bottom = 9.0
+
+[node name="Slot3" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 9.0
+offset_right = 40.0
+offset_bottom = 9.0
+
+[node name="Slot4" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 56.0
+offset_top = 9.0
+offset_right = 56.0
+offset_bottom = 9.0
+
+[node name="Slot5" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 9.0
+offset_right = 72.0
+offset_bottom = 9.0
+
+[node name="Slot6" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 9.0
+offset_right = 88.0
+offset_bottom = 9.0
+
+[node name="Slot7" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 104.0
+offset_top = 9.0
+offset_right = 104.0
+offset_bottom = 9.0
+
+[node name="Slot8" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 120.0
+offset_top = 9.0
+offset_right = 120.0
+offset_bottom = 9.0
+
+[node name="Slot9" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 25.0
+offset_right = 8.0
+offset_bottom = 25.0
+
+[node name="Slot10" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 25.0
+offset_right = 24.0
+offset_bottom = 25.0
+
+[node name="Slot11" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 25.0
+offset_right = 40.0
+offset_bottom = 25.0
+
+[node name="Slot12" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 56.0
+offset_top = 25.0
+offset_right = 56.0
+offset_bottom = 25.0
+
+[node name="Slot13" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 25.0
+offset_right = 72.0
+offset_bottom = 25.0
+
+[node name="Slot14" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 25.0
+offset_right = 88.0
+offset_bottom = 25.0
+
+[node name="Slot15" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 104.0
+offset_top = 25.0
+offset_right = 104.0
+offset_bottom = 25.0
+
+[node name="Slot16" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 120.0
+offset_top = 25.0
+offset_right = 120.0
+offset_bottom = 25.0
+
+[node name="Slot17" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 41.0
+offset_right = 8.0
+offset_bottom = 41.0
+
+[node name="Slot18" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 24.0
+offset_bottom = 41.0
+
+[node name="Slot19" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 41.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Slot20" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 56.0
+offset_top = 41.0
+offset_right = 56.0
+offset_bottom = 41.0
+
+[node name="Slot21" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 41.0
+offset_right = 72.0
+offset_bottom = 41.0
+
+[node name="Slot22" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 41.0
+offset_right = 88.0
+offset_bottom = 41.0
+
+[node name="Slot23" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 104.0
+offset_top = 41.0
+offset_right = 104.0
+offset_bottom = 41.0
+
+[node name="Slot24" parent="Tools Section" instance=ExtResource("3_yxepq")]
+layout_mode = 1
+offset_left = 120.0
+offset_top = 41.0
+offset_right = 120.0
+offset_bottom = 41.0
+
 [node name="Materials" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 9.0
@@ -483,5 +945,30 @@ scale = Vector2(0.35, 0.35)
 texture_normal = ExtResource("9_aqnmd")
 texture_pressed = ExtResource("10_o4ksx")
 
+[node name="Tools" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 22.999998
+offset_top = 1.9999999
+offset_right = 39.0
+offset_bottom = 18.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("17_r01aq")
+texture_pressed = ExtResource("19_18ikp")
+
+[connection signal="mouse_entered" from="Materials Section/Oak Log Slot/Oak Log/Oak Log Button" to="Item Info Manager" method="_on_oak_log_button_mouse_entered"]
+[connection signal="mouse_exited" from="Materials Section/Oak Log Slot/Oak Log/Oak Log Button" to="Item Info Manager" method="_on_oak_log_button_mouse_exited"]
+[connection signal="mouse_entered" from="Materials Section/Stick Slot/Stick/Stick Button" to="Item Info Manager" method="_on_stick_button_mouse_entered"]
+[connection signal="mouse_exited" from="Materials Section/Stick Slot/Stick/Stick Button" to="Item Info Manager" method="_on_stick_button_mouse_exited"]
+[connection signal="mouse_entered" from="Materials Section/Planks Slot/Plank/Plank Button" to="Item Info Manager" method="_on_plank_button_mouse_entered"]
+[connection signal="mouse_exited" from="Materials Section/Planks Slot/Plank/Plank Button" to="Item Info Manager" method="_on_plank_button_mouse_exited"]
+[connection signal="mouse_entered" from="Food Section/Apple Slot/Apple Eat Button" to="Item Info Manager" method="_on_apple_eat_button_mouse_entered"]
+[connection signal="mouse_exited" from="Food Section/Apple Slot/Apple Eat Button" to="Item Info Manager" method="_on_apple_eat_button_mouse_exited"]
+[connection signal="pressed" from="Food Section/Apple Slot/Apple Eat Button" to="Food Section/Food System Manager" method="_on_apple_eat_button_pressed"]
+[connection signal="mouse_entered" from="Food Section/Blueberry Slot/Blueberry Eat Button" to="Item Info Manager" method="_on_blueberry_eat_button_mouse_entered"]
+[connection signal="mouse_exited" from="Food Section/Blueberry Slot/Blueberry Eat Button" to="Item Info Manager" method="_on_blueberry_eat_button_mouse_exited"]
+[connection signal="pressed" from="Food Section/Blueberry Slot/Blueberry Eat Button" to="Food Section/Food System Manager" method="_on_blueberry_eat_button_pressed"]
+[connection signal="mouse_entered" from="Tools Section/Wooden Axe Slot/Wooden Axe/Wooden Axe Button" to="Item Info Manager" method="_on_wooden_axe_button_mouse_entered"]
+[connection signal="mouse_exited" from="Tools Section/Wooden Axe Slot/Wooden Axe/Wooden Axe Button" to="Item Info Manager" method="_on_wooden_axe_button_mouse_exited"]
 [connection signal="pressed" from="Materials" to="." method="_on_materials_pressed"]
 [connection signal="pressed" from="Food" to="." method="_on_food_pressed"]
+[connection signal="pressed" from="Tools" to="." method="_on_tools_pressed"]

@@ -1,0 +1,240 @@
+[gd_scene load_steps=16 format=3 uid="uid://bq3ckmj8bm1gi"]
+
+[ext_resource type="Script" uid="uid://dk78ovpccucep" path="res://Scripts/hotbar.gd" id="1_8pkca"]
+[ext_resource type="Texture2D" uid="uid://b2g21yyjtddl5" path="res://Textures/Hotbar.png" id="1_oais3"]
+[ext_resource type="Texture2D" uid="uid://chsmggu2gvvfw" path="res://Textures/Axe1.png" id="2_w22v5"]
+[ext_resource type="LabelSettings" uid="uid://b032rqydghyga" path="res://Label Settings.tres" id="4_oyw2r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w22v5"]
+atlas = ExtResource("1_oais3")
+region = Rect2(0, 0, 160, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pkca"]
+atlas = ExtResource("1_oais3")
+region = Rect2(0, 16, 160, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyw2r"]
+atlas = ExtResource("1_oais3")
+region = Rect2(0, 32, 160, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77bah"]
+atlas = ExtResource("1_oais3")
+region = Rect2(0, 48, 160, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngi26"]
+atlas = ExtResource("1_oais3")
+region = Rect2(0, 64, 160, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojcin"]
+atlas = ExtResource("1_oais3")
+region = Rect2(0, 80, 160, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf02k"]
+atlas = ExtResource("1_oais3")
+region = Rect2(0, 96, 160, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw1nh"]
+atlas = ExtResource("1_oais3")
+region = Rect2(0, 112, 160, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry31j"]
+atlas = ExtResource("1_oais3")
+region = Rect2(0, 128, 160, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2xdi"]
+atlas = ExtResource("1_oais3")
+region = Rect2(0, 144, 160, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66v46"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w22v5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pkca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyw2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77bah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngi26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojcin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf02k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw1nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry31j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2xdi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Hotbar" type="Node2D"]
+script = ExtResource("1_8pkca")
+
+[node name="Hotbar" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_66v46")
+
+[node name="Slot 1" type="Sprite2D" parent="."]
+position = Vector2(-72.00001, 5.9604645e-08)
+scale = Vector2(0.6874999, 0.6874999)
+texture = ExtResource("2_w22v5")
+
+[node name="Slot 1 Quantity" type="Label" parent="Slot 1"]
+offset_left = -10.181805
+offset_top = 2.9090912
+offset_right = 28.181828
+offset_bottom = 18.909092
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = ExtResource("4_oyw2r")
+horizontal_alignment = 2
+
+[node name="Slot 2" type="Sprite2D" parent="."]
+position = Vector2(-56, 3.5527137e-15)
+scale = Vector2(0.6874999, 0.6874999)
+texture = ExtResource("2_w22v5")
+
+[node name="Slot 2 Quantity" type="Label" parent="Slot 2"]
+offset_left = -10.181805
+offset_top = 2.9090912
+offset_right = 28.181828
+offset_bottom = 18.909092
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = ExtResource("4_oyw2r")
+horizontal_alignment = 2
+
+[node name="Slot 3" type="Sprite2D" parent="."]
+position = Vector2(-40.000004, 0)
+scale = Vector2(0.6874999, 0.6874999)
+texture = ExtResource("2_w22v5")
+
+[node name="Slot 3 Quantity" type="Label" parent="Slot 3"]
+offset_left = -10.181805
+offset_top = 2.9090912
+offset_right = 28.181828
+offset_bottom = 18.909092
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = ExtResource("4_oyw2r")
+horizontal_alignment = 2
+
+[node name="Slot 4" type="Sprite2D" parent="."]
+position = Vector2(-24, 2.9802322e-08)
+scale = Vector2(0.6874999, 0.6874999)
+texture = ExtResource("2_w22v5")
+
+[node name="Slot 4 Quantity" type="Label" parent="Slot 4"]
+offset_left = -10.181805
+offset_top = 2.9090912
+offset_right = 28.181828
+offset_bottom = 18.909092
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = ExtResource("4_oyw2r")
+horizontal_alignment = 2
+
+[node name="Slot 5" type="Sprite2D" parent="."]
+position = Vector2(-8, -5.9604645e-08)
+scale = Vector2(0.6874999, 0.6874999)
+texture = ExtResource("2_w22v5")
+
+[node name="Slot 5 Quantity" type="Label" parent="Slot 5"]
+offset_left = -10.181805
+offset_top = 2.9090912
+offset_right = 28.181828
+offset_bottom = 18.909092
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = ExtResource("4_oyw2r")
+horizontal_alignment = 2
+
+[node name="Slot 6" type="Sprite2D" parent="."]
+position = Vector2(8, -1.1920929e-07)
+scale = Vector2(0.6874999, 0.6874999)
+texture = ExtResource("2_w22v5")
+
+[node name="Slot 6 Quantity" type="Label" parent="Slot 6"]
+offset_left = -10.181805
+offset_top = 2.9090912
+offset_right = 28.181828
+offset_bottom = 18.909092
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = ExtResource("4_oyw2r")
+horizontal_alignment = 2
+
+[node name="Slot 7" type="Sprite2D" parent="."]
+position = Vector2(24.000002, -1.1920929e-07)
+scale = Vector2(0.6874999, 0.6874999)
+texture = ExtResource("2_w22v5")
+
+[node name="Slot 7 Quantity" type="Label" parent="Slot 7"]
+offset_left = -10.181805
+offset_top = 2.9090912
+offset_right = 28.181828
+offset_bottom = 18.909092
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = ExtResource("4_oyw2r")
+horizontal_alignment = 2
+
+[node name="Slot 8" type="Sprite2D" parent="."]
+position = Vector2(40, -5.9604645e-08)
+scale = Vector2(0.6874999, 0.6874999)
+texture = ExtResource("2_w22v5")
+
+[node name="Slot 8 Quantity" type="Label" parent="Slot 8"]
+offset_left = -10.181805
+offset_top = 2.9090912
+offset_right = 28.181828
+offset_bottom = 18.909092
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = ExtResource("4_oyw2r")
+horizontal_alignment = 2
+
+[node name="Slot 9" type="Sprite2D" parent="."]
+position = Vector2(56, -3.5527137e-15)
+scale = Vector2(0.6874999, 0.6874999)
+texture = ExtResource("2_w22v5")
+
+[node name="Slot 9 Quantity" type="Label" parent="Slot 9"]
+offset_left = -10.181805
+offset_top = 2.9090912
+offset_right = 28.181828
+offset_bottom = 18.909092
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = ExtResource("4_oyw2r")
+horizontal_alignment = 2
+
+[node name="Slot 10" type="Sprite2D" parent="."]
+position = Vector2(72, -2.1175824e-22)
+scale = Vector2(0.6874999, 0.6874999)
+texture = ExtResource("2_w22v5")
+
+[node name="Slot 10 Quantity" type="Label" parent="Slot 10"]
+offset_left = -10.181805
+offset_top = 2.9090912
+offset_right = 28.181828
+offset_bottom = 18.909092
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = ExtResource("4_oyw2r")
+horizontal_alignment = 2

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b032rqydghyga"]
+
+[ext_resource type="FontFile" uid="uid://cmkpa4xnatsnc" path="res://Minecraft.ttf" id="1_prtit"]
+
+[resource]
+font = ExtResource("1_prtit")
+shadow_color = Color(0, 0, 0, 1)

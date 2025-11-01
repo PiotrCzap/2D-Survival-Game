@@ -1,0 +1,243 @@
+[gd_scene load_steps=14 format=3 uid="uid://2dlbpkxpyrfn"]
+
+[ext_resource type="Script" uid="uid://3dq126ndnifj" path="res://Scripts/crafting_ui.gd" id="1_i2rbw"]
+[ext_resource type="Texture2D" uid="uid://j6q2cjdus2ks" path="res://Textures/Crafting Background.png" id="1_mupic"]
+[ext_resource type="LabelSettings" uid="uid://b032rqydghyga" path="res://Label Settings.tres" id="2_hhof2"]
+[ext_resource type="Texture2D" uid="uid://d3t1jawi7ums1" path="res://Textures/Craft Button1.png" id="3_mvsx2"]
+[ext_resource type="Texture2D" uid="uid://dba1c466v8aim" path="res://Textures/Craft Button2.png" id="4_8i03j"]
+[ext_resource type="Texture2D" uid="uid://cnaelrwkvpoto" path="res://Textures/Plank.png" id="5_8i03j"]
+[ext_resource type="Texture2D" uid="uid://b11p07tv3f8sn" path="res://Textures/Oak Log.png" id="7_na1ux"]
+[ext_resource type="Texture2D" uid="uid://chsmggu2gvvfw" path="res://Textures/Axe1.png" id="8_355c7"]
+[ext_resource type="Texture2D" uid="uid://cws4527jn7y8o" path="res://Textures/Stick.png" id="9_c257b"]
+
+[sub_resource type="Animation" id="Animation_i2rbw"]
+resource_name = "Item Craft Info Panel Closeing"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Item Craft Info:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2.5, 1),
+"update": 0,
+"values": [Vector2(-28.54, 0), Vector2(-0.385, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hhof2"]
+resource_name = "Item Craft Info Panel Opening"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Item Craft Info:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(2.5, 1),
+"update": 0,
+"values": [Vector2(0.11, 0), Vector2(-28.54, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_frng7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Item Craft Info:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mvsx2"]
+_data = {
+&"Item Craft Info Panel Closeing": SubResource("Animation_i2rbw"),
+&"Item Craft Info Panel Opening": SubResource("Animation_hhof2"),
+&"RESET": SubResource("Animation_frng7")
+}
+
+[node name="Crafting UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+script = ExtResource("1_i2rbw")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+z_index = 10
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 42.0
+texture = ExtResource("1_mupic")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 88.0
+offset_bottom = 25.0
+scale = Vector2(0.3, 0.3)
+text = "CRAFTING"
+label_settings = ExtResource("2_hhof2")
+
+[node name="Item Craft Info" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Item Craft Info Background" type="NinePatchRect" parent="Item Craft Info"]
+layout_mode = 0
+offset_right = 26.0
+offset_bottom = 42.0
+texture = ExtResource("1_mupic")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Item Name" type="Label" parent="Item Craft Info/Item Craft Info Background"]
+layout_mode = 0
+offset_left = 1.9999995
+offset_top = 2.0
+offset_right = 193.66666
+offset_bottom = 18.666666
+scale = Vector2(0.12, 0.12)
+text = "item name"
+label_settings = ExtResource("2_hhof2")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mvsx2")
+}
+
+[node name="Plank" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Texture" type="TextureRect" parent="Plank"]
+z_index = 130
+layout_mode = 0
+offset_left = 5.0
+offset_top = 9.0
+offset_right = 23.0
+offset_bottom = 27.0
+scale = Vector2(0.485, 0.485)
+texture = ExtResource("5_8i03j")
+
+[node name="Plank Craft Button" type="TextureButton" parent="Plank"]
+z_index = 10
+layout_mode = 0
+offset_left = 3.0
+offset_top = 7.0
+offset_right = 19.0
+offset_bottom = 23.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("3_mvsx2")
+texture_pressed = ExtResource("4_8i03j")
+
+[node name="Wood texture" type="TextureRect" parent="Plank"]
+visible = false
+layout_mode = 0
+offset_left = -26.5
+offset_top = 1.5000001
+offset_right = 13.5
+offset_bottom = 41.5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_na1ux")
+
+[node name="Wood Label" type="Label" parent="Plank/Wood texture"]
+layout_mode = 0
+offset_left = 44.999996
+offset_top = 14.999998
+offset_right = 54.999996
+offset_bottom = 30.999998
+text = "1"
+label_settings = ExtResource("2_hhof2")
+
+[node name="Wooden Axe" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 7.5
+offset_bottom = 7.0
+
+[node name="Texture" type="TextureRect" parent="Wooden Axe"]
+z_index = 11
+layout_mode = 0
+offset_left = 19.0
+offset_top = 9.0
+offset_right = 37.0
+offset_bottom = 27.0
+scale = Vector2(0.485, 0.485)
+texture = ExtResource("8_355c7")
+
+[node name="Wooden Axe Craft Button" type="TextureButton" parent="Wooden Axe"]
+z_index = 10
+layout_mode = 0
+offset_left = 17.000002
+offset_top = 7.0
+offset_right = 33.000004
+offset_bottom = 23.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("3_mvsx2")
+texture_pressed = ExtResource("4_8i03j")
+
+[node name="Wood texture" type="TextureRect" parent="Wooden Axe"]
+visible = false
+layout_mode = 0
+offset_left = -26.5
+offset_top = 1.5000001
+offset_right = 13.5
+offset_bottom = 41.5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_na1ux")
+
+[node name="Wood Label" type="Label" parent="Wooden Axe/Wood texture"]
+layout_mode = 0
+offset_left = 44.999996
+offset_top = 14.999998
+offset_right = 54.999996
+offset_bottom = 30.999998
+text = "3"
+label_settings = ExtResource("2_hhof2")
+
+[node name="Stick texture" type="TextureRect" parent="Wooden Axe"]
+visible = false
+layout_mode = 0
+offset_left = -25.5
+offset_top = 8.0
+offset_right = 6.9999924
+offset_bottom = 40.499992
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_c257b")
+
+[node name="Sticks Label" type="Label" parent="Wooden Axe/Stick texture"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 12.499998
+offset_right = 50.0
+offset_bottom = 28.499998
+text = "2"
+label_settings = ExtResource("2_hhof2")
+
+[connection signal="mouse_entered" from="Plank/Plank Craft Button" to="." method="_on_plank_craft_button_mouse_entered"]
+[connection signal="mouse_exited" from="Plank/Plank Craft Button" to="." method="_on_plank_craft_button_mouse_exited"]
+[connection signal="pressed" from="Plank/Plank Craft Button" to="." method="_on_plank_craft_button_pressed"]
+[connection signal="mouse_entered" from="Wooden Axe/Wooden Axe Craft Button" to="." method="_on_wooden_axe_craft_button_mouse_entered"]
+[connection signal="mouse_exited" from="Wooden Axe/Wooden Axe Craft Button" to="." method="_on_wooden_axe_craft_button_mouse_exited"]
+[connection signal="pressed" from="Wooden Axe/Wooden Axe Craft Button" to="." method="_on_wooden_axe_craft_button_pressed"]
