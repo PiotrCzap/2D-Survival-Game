@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://burq6ebyvlhua"
-path="res://.godot/imported/Axe2.png-c658039142f3c8778b229b73e507fae4.ctex"
+uid="uid://ysw6n4hhfgi2"
+path="res://.godot/imported/Gold Axe.png-b36325ffa878bb51c180c2e0f9521a66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Axe2.png"
-dest_files=["res://.godot/imported/Axe2.png-c658039142f3c8778b229b73e507fae4.ctex"]
+source_file="res://Textures/Gold Axe.png"
+dest_files=["res://.godot/imported/Gold Axe.png-b36325ffa878bb51c180c2e0f9521a66.ctex"]
 
 [params]
 

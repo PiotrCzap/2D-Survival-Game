@@ -56,12 +56,13 @@ func _on_wooden_axe_button_mouse_exited() -> void:
 @export_group("Apple")
 @export var Apple_item_info: Control
 
-func _on_apple_eat_button_mouse_entered() -> void:
+func _on_apple_button_mouse_entered() -> void:
 	Apple_item_info.show()
 
 
-func _on_apple_eat_button_mouse_exited() -> void:
+func _on_apple_button_mouse_exited() -> void:
 	Apple_item_info.hide()
+
 
 @export_group("Blueberry")
 @export var Blueberry_item_info: Control

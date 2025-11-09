@@ -11,6 +11,31 @@ extends Node
 @export var is_inventory_open: bool = false
 @export var is_crafting_open: bool = false
 
+
+#----hotbar--------
+
+@export var oak_log_on_hotbar_selected: bool = false
+@export var stick_on_hotbar_selected: bool = false
+@export var planks_on_hotbar_selected: bool = false
+@export var apple_log_on_hotbar_selected: bool = false
+
+#region Materials Section
+
+@export var oak_log_selected: bool = false
+@export var stick_selected: bool = false
+@export var plank_selected: bool = false
+#endregion
+
+#region Food Section
+
+@export var apple_selected: bool = false
+@export var blueberris_selected: bool = false
+#endregion
+
+#region Tools Section
+@export var Wooden_axe_selected: bool = false
+#endregion
+
 #----Materials-----
 @export var Wood: int = 0
 @export var Sticks: int = 0

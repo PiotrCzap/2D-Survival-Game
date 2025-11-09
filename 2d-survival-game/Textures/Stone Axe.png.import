@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chsmggu2gvvfw"
-path="res://.godot/imported/Axe1.png-8541e88d73d72c5f7b416e7622721c62.ctex"
+uid="uid://burq6ebyvlhua"
+path="res://.godot/imported/Stone Axe.png-0e47b3bec5ea95d18c7d22c5b22d383a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Axe1.png"
-dest_files=["res://.godot/imported/Axe1.png-8541e88d73d72c5f7b416e7622721c62.ctex"]
+source_file="res://Textures/Stone Axe.png"
+dest_files=["res://.godot/imported/Stone Axe.png-0e47b3bec5ea95d18c7d22c5b22d383a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ysw6n4hhfgi2"
-path="res://.godot/imported/Axe4.png-8110c829daa4d81e34dc0f774b8e3277.ctex"
+uid="uid://bhjo464abdhm4"
+path="res://.godot/imported/Cave Tilemap.png-dfa322a4f95a102a34ac9f8c308a357b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Axe4.png"
-dest_files=["res://.godot/imported/Axe4.png-8110c829daa4d81e34dc0f774b8e3277.ctex"]
+source_file="res://Textures/Cave Tilemap.png"
+dest_files=["res://.godot/imported/Cave Tilemap.png-dfa322a4f95a102a34ac9f8c308a357b.ctex"]
 
 [params]
 

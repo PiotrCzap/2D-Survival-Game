@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dba1c466v8aim" path="res://Textures/Craft Button2.png" id="4_8i03j"]
 [ext_resource type="Texture2D" uid="uid://cnaelrwkvpoto" path="res://Textures/Plank.png" id="5_8i03j"]
 [ext_resource type="Texture2D" uid="uid://b11p07tv3f8sn" path="res://Textures/Oak Log.png" id="7_na1ux"]
-[ext_resource type="Texture2D" uid="uid://chsmggu2gvvfw" path="res://Textures/Axe1.png" id="8_355c7"]
+[ext_resource type="Texture2D" uid="uid://chsmggu2gvvfw" path="res://Textures/Wooden Axe.png" id="8_355c7"]
 [ext_resource type="Texture2D" uid="uid://cws4527jn7y8o" path="res://Textures/Stick.png" id="9_c257b"]
 
 [sub_resource type="Animation" id="Animation_i2rbw"]

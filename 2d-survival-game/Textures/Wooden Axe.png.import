@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c81fute5ad7tw"
-path="res://.godot/imported/Axe3.png-72e87de26b4c950030736e269ae7e9a6.ctex"
+uid="uid://chsmggu2gvvfw"
+path="res://.godot/imported/Wooden Axe.png-859d27751a495b8d4c898c985148c812.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Axe3.png"
-dest_files=["res://.godot/imported/Axe3.png-72e87de26b4c950030736e269ae7e9a6.ctex"]
+source_file="res://Textures/Wooden Axe.png"
+dest_files=["res://.godot/imported/Wooden Axe.png-859d27751a495b8d4c898c985148c812.ctex"]
 
 [params]
 

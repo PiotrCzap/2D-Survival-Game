@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bdgug64iy3q63" path="res://Scenes/player.tscn" id="1_qxrlw"]
 [ext_resource type="Script" uid="uid://h53tkbkri4ng" path="res://Scripts/inventory_ui.gd" id="2_1l0tm"]
 [ext_resource type="Script" uid="uid://bl701en0558kn" path="res://Scripts/camera_2d.gd" id="2_85qyi"]
-[ext_resource type="Texture2D" uid="uid://cjem2io41rnsq" path="res://icon.svg" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://cvij4w6nscqj0" path="res://Scenes/Chunks/grass_chunk.tscn" id="3_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://cacmsybbmqqjx" path="res://Textures/Empty Health Progress Bar.png" id="4_ldgsr"]
 [ext_resource type="Texture2D" uid="uid://yyjd2fs3a38r" path="res://Textures/Map Tilemap.png" id="4_wowpa"]
@@ -19,6 +18,7 @@
 [ext_resource type="Script" uid="uid://c5piu78b0q2ws" path="res://Scripts/hunger_progress_bar.gd" id="11_nnt18"]
 [ext_resource type="PackedScene" uid="uid://2dlbpkxpyrfn" path="res://Scenes/crafting_ui.tscn" id="12_ewbju"]
 [ext_resource type="PackedScene" uid="uid://bq3ckmj8bm1gi" path="res://Scenes/hotbar.tscn" id="14_iivbl"]
+[ext_resource type="PackedScene" uid="uid://gvbo75beukry" path="res://Scenes/cave_chunk.tscn" id="18_iivbl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dryh"]
 texture = ExtResource("4_wowpa")
@@ -120,6 +120,7 @@ position_smoothing_speed = 50.0
 script = ExtResource("2_85qyi")
 
 [node name="Inventory UI" type="Node2D" parent="Player"]
+visible = false
 z_index = 1000
 script = ExtResource("2_1l0tm")
 
@@ -140,14 +141,7 @@ scale = Vector2(1, 1)
 
 [node name="Hotbar" parent="Player" instance=ExtResource("14_iivbl")]
 position = Vector2(0, 53.205)
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(582, -110)
-texture = ExtResource("2_wrm1d")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(155, 316)
-texture = ExtResource("2_wrm1d")
+scale = Vector2(0.8, 0.8)
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -1177,8 +1171,732 @@ position = Vector2(-24, -152)
 [node name="Tree20" parent="Map/Overworld/Trees" instance=ExtResource("5_wowpa")]
 position = Vector2(0, -80)
 
-[node name="Blueberry Bush" parent="Map" instance=ExtResource("7_v158k")]
+[node name="Blueberry Bush" parent="Map/Overworld" instance=ExtResource("7_v158k")]
 position = Vector2(-93, -7)
+
+[node name="Cave" type="Node2D" parent="Map"]
+visible = false
+
+[node name="Cave Chunks" type="Node2D" parent="Map/Cave"]
+
+[node name="Cave chunk" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+
+[node name="Cave chunk2" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, 0)
+
+[node name="Cave chunk3" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, 0)
+
+[node name="Cave chunk4" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, 0)
+
+[node name="Cave chunk5" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, 0)
+
+[node name="Cave chunk6" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, 0)
+
+[node name="Cave chunk7" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, 0)
+
+[node name="Cave chunk8" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, 0)
+
+[node name="Cave chunk9" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, 0)
+
+[node name="Cave chunk10" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, 0)
+
+[node name="Cave chunk11" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, 0)
+
+[node name="Cave chunk12" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, 0)
+
+[node name="Cave chunk13" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, 0)
+
+[node name="Cave chunk14" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, 0)
+
+[node name="Cave chunk15" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, 0)
+
+[node name="Cave chunk16" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, 0)
+
+[node name="Cave chunk17" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, -528)
+
+[node name="Cave chunk18" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, -528)
+
+[node name="Cave chunk19" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, -528)
+
+[node name="Cave chunk20" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, -528)
+
+[node name="Cave chunk21" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, -528)
+
+[node name="Cave chunk22" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, -528)
+
+[node name="Cave chunk23" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, -528)
+
+[node name="Cave chunk24" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, -528)
+
+[node name="Cave chunk25" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, -528)
+
+[node name="Cave chunk26" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, -528)
+
+[node name="Cave chunk27" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, -528)
+
+[node name="Cave chunk28" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, -528)
+
+[node name="Cave chunk29" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, -528)
+
+[node name="Cave chunk30" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, -528)
+
+[node name="Cave chunk31" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, -528)
+
+[node name="Cave chunk32" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, -528)
+
+[node name="Cave chunk33" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, -1056)
+
+[node name="Cave chunk34" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, -1056)
+
+[node name="Cave chunk35" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, -1056)
+
+[node name="Cave chunk36" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, -1056)
+
+[node name="Cave chunk37" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, -1056)
+
+[node name="Cave chunk38" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, -1056)
+
+[node name="Cave chunk39" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, -1056)
+
+[node name="Cave chunk40" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, -1056)
+
+[node name="Cave chunk41" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, -1056)
+
+[node name="Cave chunk42" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, -1056)
+
+[node name="Cave chunk43" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, -1056)
+
+[node name="Cave chunk44" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, -1056)
+
+[node name="Cave chunk45" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, -1056)
+
+[node name="Cave chunk46" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, -1056)
+
+[node name="Cave chunk47" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, -1056)
+
+[node name="Cave chunk48" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, -1056)
+
+[node name="Cave chunk49" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, -1584)
+
+[node name="Cave chunk50" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, -1584)
+
+[node name="Cave chunk51" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, -1584)
+
+[node name="Cave chunk52" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, -1584)
+
+[node name="Cave chunk53" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, -1584)
+
+[node name="Cave chunk54" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, -1584)
+
+[node name="Cave chunk55" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, -1584)
+
+[node name="Cave chunk56" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, -1584)
+
+[node name="Cave chunk57" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, -1584)
+
+[node name="Cave chunk58" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, -1584)
+
+[node name="Cave chunk59" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, -1584)
+
+[node name="Cave chunk60" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, -1584)
+
+[node name="Cave chunk61" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, -1584)
+
+[node name="Cave chunk62" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, -1584)
+
+[node name="Cave chunk63" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, -1584)
+
+[node name="Cave chunk64" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, -1584)
+
+[node name="Cave chunk65" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, -2112)
+
+[node name="Cave chunk66" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, -2112)
+
+[node name="Cave chunk67" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, -2112)
+
+[node name="Cave chunk68" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, -2112)
+
+[node name="Cave chunk69" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, -2112)
+
+[node name="Cave chunk70" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, -2112)
+
+[node name="Cave chunk71" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, -2112)
+
+[node name="Cave chunk72" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, -2112)
+
+[node name="Cave chunk73" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, -2112)
+
+[node name="Cave chunk74" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, -2112)
+
+[node name="Cave chunk75" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, -2112)
+
+[node name="Cave chunk76" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, -2112)
+
+[node name="Cave chunk77" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, -2112)
+
+[node name="Cave chunk78" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, -2112)
+
+[node name="Cave chunk79" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, -2112)
+
+[node name="Cave chunk80" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, -2112)
+
+[node name="Cave chunk81" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, -2640)
+
+[node name="Cave chunk82" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, -2640)
+
+[node name="Cave chunk83" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, -2640)
+
+[node name="Cave chunk84" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, -2640)
+
+[node name="Cave chunk85" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, -2640)
+
+[node name="Cave chunk86" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, -2640)
+
+[node name="Cave chunk87" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, -2640)
+
+[node name="Cave chunk88" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, -2640)
+
+[node name="Cave chunk89" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, -2640)
+
+[node name="Cave chunk90" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, -2640)
+
+[node name="Cave chunk91" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, -2640)
+
+[node name="Cave chunk92" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, -2640)
+
+[node name="Cave chunk93" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, -2640)
+
+[node name="Cave chunk94" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, -2640)
+
+[node name="Cave chunk95" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, -2640)
+
+[node name="Cave chunk96" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, -2640)
+
+[node name="Cave chunk97" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, -3168)
+
+[node name="Cave chunk98" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, -3168)
+
+[node name="Cave chunk99" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, -3168)
+
+[node name="Cave chunk100" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, -3168)
+
+[node name="Cave chunk101" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, -3168)
+
+[node name="Cave chunk102" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, -3168)
+
+[node name="Cave chunk103" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, -3168)
+
+[node name="Cave chunk104" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, -3168)
+
+[node name="Cave chunk105" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, -3168)
+
+[node name="Cave chunk106" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, -3168)
+
+[node name="Cave chunk107" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, -3168)
+
+[node name="Cave chunk108" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, -3168)
+
+[node name="Cave chunk109" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, -3168)
+
+[node name="Cave chunk110" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, -3168)
+
+[node name="Cave chunk111" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, -3168)
+
+[node name="Cave chunk112" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, -3168)
+
+[node name="Cave chunk113" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, -3696)
+
+[node name="Cave chunk114" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, -3696)
+
+[node name="Cave chunk115" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, -3696)
+
+[node name="Cave chunk116" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, -3696)
+
+[node name="Cave chunk117" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, -3696)
+
+[node name="Cave chunk118" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, -3696)
+
+[node name="Cave chunk119" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, -3696)
+
+[node name="Cave chunk120" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, -3696)
+
+[node name="Cave chunk121" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, -3696)
+
+[node name="Cave chunk122" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, -3696)
+
+[node name="Cave chunk123" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, -3696)
+
+[node name="Cave chunk124" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, -3696)
+
+[node name="Cave chunk125" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, -3696)
+
+[node name="Cave chunk126" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, -3696)
+
+[node name="Cave chunk127" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, -3696)
+
+[node name="Cave chunk128" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, -3696)
+
+[node name="Cave chunk129" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, 2112)
+
+[node name="Cave chunk130" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, 2112)
+
+[node name="Cave chunk131" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, 2112)
+
+[node name="Cave chunk132" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, 2112)
+
+[node name="Cave chunk133" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, 2112)
+
+[node name="Cave chunk134" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, 2112)
+
+[node name="Cave chunk135" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, 2112)
+
+[node name="Cave chunk136" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, 2112)
+
+[node name="Cave chunk137" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, 2112)
+
+[node name="Cave chunk138" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, 2112)
+
+[node name="Cave chunk139" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, 2112)
+
+[node name="Cave chunk140" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, 2112)
+
+[node name="Cave chunk141" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, 2112)
+
+[node name="Cave chunk142" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, 2112)
+
+[node name="Cave chunk143" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, 2112)
+
+[node name="Cave chunk144" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, 2112)
+
+[node name="Cave chunk145" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, 1584)
+
+[node name="Cave chunk146" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, 1584)
+
+[node name="Cave chunk147" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, 1584)
+
+[node name="Cave chunk148" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, 1584)
+
+[node name="Cave chunk149" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, 1584)
+
+[node name="Cave chunk150" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, 1584)
+
+[node name="Cave chunk151" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, 1584)
+
+[node name="Cave chunk152" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, 1584)
+
+[node name="Cave chunk153" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, 1584)
+
+[node name="Cave chunk154" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, 1584)
+
+[node name="Cave chunk155" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, 1584)
+
+[node name="Cave chunk156" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, 1584)
+
+[node name="Cave chunk157" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, 1584)
+
+[node name="Cave chunk158" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, 1584)
+
+[node name="Cave chunk159" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, 1584)
+
+[node name="Cave chunk160" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, 1584)
+
+[node name="Cave chunk161" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, 1056)
+
+[node name="Cave chunk162" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, 1056)
+
+[node name="Cave chunk163" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, 1056)
+
+[node name="Cave chunk164" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, 1056)
+
+[node name="Cave chunk165" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, 1056)
+
+[node name="Cave chunk166" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, 1056)
+
+[node name="Cave chunk167" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, 1056)
+
+[node name="Cave chunk168" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, 1056)
+
+[node name="Cave chunk169" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, 1056)
+
+[node name="Cave chunk170" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, 1056)
+
+[node name="Cave chunk171" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, 1056)
+
+[node name="Cave chunk172" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, 1056)
+
+[node name="Cave chunk173" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, 1056)
+
+[node name="Cave chunk174" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, 1056)
+
+[node name="Cave chunk175" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, 1056)
+
+[node name="Cave chunk176" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, 1056)
+
+[node name="Cave chunk193" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, 3696)
+
+[node name="Cave chunk194" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, 3696)
+
+[node name="Cave chunk195" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, 3696)
+
+[node name="Cave chunk196" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, 3696)
+
+[node name="Cave chunk197" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, 3696)
+
+[node name="Cave chunk198" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, 3696)
+
+[node name="Cave chunk199" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, 3696)
+
+[node name="Cave chunk200" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, 3696)
+
+[node name="Cave chunk201" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, 3696)
+
+[node name="Cave chunk202" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, 3696)
+
+[node name="Cave chunk203" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, 3696)
+
+[node name="Cave chunk204" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, 3696)
+
+[node name="Cave chunk205" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, 3696)
+
+[node name="Cave chunk206" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, 3696)
+
+[node name="Cave chunk207" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, 3696)
+
+[node name="Cave chunk208" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, 3696)
+
+[node name="Cave chunk209" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, 3168)
+
+[node name="Cave chunk210" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, 3168)
+
+[node name="Cave chunk211" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, 3168)
+
+[node name="Cave chunk212" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, 3168)
+
+[node name="Cave chunk213" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, 3168)
+
+[node name="Cave chunk214" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, 3168)
+
+[node name="Cave chunk215" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, 3168)
+
+[node name="Cave chunk216" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, 3168)
+
+[node name="Cave chunk217" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, 3168)
+
+[node name="Cave chunk218" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, 3168)
+
+[node name="Cave chunk219" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, 3168)
+
+[node name="Cave chunk220" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, 3168)
+
+[node name="Cave chunk221" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, 3168)
+
+[node name="Cave chunk222" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, 3168)
+
+[node name="Cave chunk223" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, 3168)
+
+[node name="Cave chunk224" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, 3168)
+
+[node name="Cave chunk225" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, 2640)
+
+[node name="Cave chunk226" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, 2640)
+
+[node name="Cave chunk227" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, 2640)
+
+[node name="Cave chunk228" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, 2640)
+
+[node name="Cave chunk229" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, 2640)
+
+[node name="Cave chunk230" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, 2640)
+
+[node name="Cave chunk231" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, 2640)
+
+[node name="Cave chunk232" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, 2640)
+
+[node name="Cave chunk233" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, 2640)
+
+[node name="Cave chunk234" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, 2640)
+
+[node name="Cave chunk235" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, 2640)
+
+[node name="Cave chunk236" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, 2640)
+
+[node name="Cave chunk237" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, 2640)
+
+[node name="Cave chunk238" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, 2640)
+
+[node name="Cave chunk239" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, 2640)
+
+[node name="Cave chunk240" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, 2640)
+
+[node name="Cave chunk177" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(0, 528)
+
+[node name="Cave chunk178" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(528, 528)
+
+[node name="Cave chunk179" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1056, 528)
+
+[node name="Cave chunk180" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(1584, 528)
+
+[node name="Cave chunk181" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2112, 528)
+
+[node name="Cave chunk182" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(2640, 528)
+
+[node name="Cave chunk183" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3168, 528)
+
+[node name="Cave chunk184" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(3696, 528)
+
+[node name="Cave chunk185" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-4224, 528)
+
+[node name="Cave chunk186" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3696, 528)
+
+[node name="Cave chunk187" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-3168, 528)
+
+[node name="Cave chunk188" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2640, 528)
+
+[node name="Cave chunk189" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-2112, 528)
+
+[node name="Cave chunk190" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1584, 528)
+
+[node name="Cave chunk191" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-1056, 528)
+
+[node name="Cave chunk192" parent="Map/Cave/Cave Chunks" instance=ExtResource("18_iivbl")]
+position = Vector2(-528, 528)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_wowpa")

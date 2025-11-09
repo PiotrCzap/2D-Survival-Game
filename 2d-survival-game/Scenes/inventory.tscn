@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://x4hucgnyb2h1" path="res://Textures/Inventory Sections Buttons/Food Section/Food Inventory Button.png" id="9_aqnmd"]
 [ext_resource type="Texture2D" uid="uid://cnaelrwkvpoto" path="res://Textures/Plank.png" id="9_q5cdx"]
 [ext_resource type="Texture2D" uid="uid://b0xvubrt1v7ps" path="res://Textures/Inventory Sections Buttons/Food Section/Food Inventory Button Pressed.png" id="10_o4ksx"]
-[ext_resource type="Texture2D" uid="uid://chsmggu2gvvfw" path="res://Textures/Axe1.png" id="13_32ipq"]
+[ext_resource type="Texture2D" uid="uid://chsmggu2gvvfw" path="res://Textures/Wooden Axe.png" id="13_32ipq"]
 [ext_resource type="Texture2D" uid="uid://ptrl5d44qbo0" path="res://Textures/Inventory Sections Buttons/Tools Section/Tools Section Button1.png" id="17_r01aq"]
 [ext_resource type="Texture2D" uid="uid://8djf4ylelwba" path="res://Textures/Inventory Sections Buttons/Tools Section/Tools Section Button2.png" id="19_18ikp"]
 
@@ -38,7 +38,7 @@ Wooden_Axe_item_info = NodePath("../Tools Section/Wooden Axe Slot/Item Info")
 Apple_item_info = NodePath("../Food Section/Apple Slot/Item Info")
 Blueberry_item_info = NodePath("../Food Section/Blueberry Slot/Item Info")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 1
 offset_left = 4.0
 offset_right = 136.0
@@ -49,7 +49,7 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="Label" type="Label" parent="."]
+[node name="Inventory Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 55.0
 offset_top = 2.0
@@ -83,14 +83,14 @@ texture = ExtResource("5_k1vlg")
 [node name="Oak Log Button" type="TextureButton" parent="Materials Section/Oak Log Slot/Oak Log"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.269
-anchor_top = -0.269
-anchor_right = 1.269
-anchor_bottom = 1.269
-offset_left = -0.0060019493
-offset_top = -0.006000042
-offset_right = 0.0060043335
-offset_bottom = 0.0059928894
+anchor_left = 0.43800002
+anchor_top = 0.5
+anchor_right = 0.43800002
+anchor_bottom = 0.5
+offset_left = -18.388002
+offset_top = -20.0
+offset_right = 21.612
+offset_bottom = 19.999989
 
 [node name="Oak Log Quantity" type="Label" parent="Materials Section/Oak Log Slot"]
 layout_mode = 0
@@ -443,7 +443,7 @@ text = "0"
 label_settings = ExtResource("2_k5gp2")
 horizontal_alignment = 2
 
-[node name="Apple Eat Button" type="TextureButton" parent="Food Section/Apple Slot"]
+[node name="Apple Button" type="TextureButton" parent="Food Section/Apple Slot"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -957,13 +957,16 @@ texture_pressed = ExtResource("19_18ikp")
 
 [connection signal="mouse_entered" from="Materials Section/Oak Log Slot/Oak Log/Oak Log Button" to="Item Info Manager" method="_on_oak_log_button_mouse_entered"]
 [connection signal="mouse_exited" from="Materials Section/Oak Log Slot/Oak Log/Oak Log Button" to="Item Info Manager" method="_on_oak_log_button_mouse_exited"]
+[connection signal="pressed" from="Materials Section/Oak Log Slot/Oak Log/Oak Log Button" to="Materials Section/Oak Log Slot" method="_on_oak_log_button_pressed"]
 [connection signal="mouse_entered" from="Materials Section/Stick Slot/Stick/Stick Button" to="Item Info Manager" method="_on_stick_button_mouse_entered"]
 [connection signal="mouse_exited" from="Materials Section/Stick Slot/Stick/Stick Button" to="Item Info Manager" method="_on_stick_button_mouse_exited"]
+[connection signal="pressed" from="Materials Section/Stick Slot/Stick/Stick Button" to="Materials Section/Oak Log Slot" method="_on_stick_button_pressed"]
 [connection signal="mouse_entered" from="Materials Section/Planks Slot/Plank/Plank Button" to="Item Info Manager" method="_on_plank_button_mouse_entered"]
 [connection signal="mouse_exited" from="Materials Section/Planks Slot/Plank/Plank Button" to="Item Info Manager" method="_on_plank_button_mouse_exited"]
-[connection signal="mouse_entered" from="Food Section/Apple Slot/Apple Eat Button" to="Item Info Manager" method="_on_apple_eat_button_mouse_entered"]
-[connection signal="mouse_exited" from="Food Section/Apple Slot/Apple Eat Button" to="Item Info Manager" method="_on_apple_eat_button_mouse_exited"]
-[connection signal="pressed" from="Food Section/Apple Slot/Apple Eat Button" to="Food Section/Food System Manager" method="_on_apple_eat_button_pressed"]
+[connection signal="pressed" from="Materials Section/Planks Slot/Plank/Plank Button" to="Materials Section/Oak Log Slot" method="_on_plank_button_pressed"]
+[connection signal="mouse_entered" from="Food Section/Apple Slot/Apple Button" to="Item Info Manager" method="_on_apple_button_mouse_entered"]
+[connection signal="mouse_exited" from="Food Section/Apple Slot/Apple Button" to="Item Info Manager" method="_on_apple_button_mouse_exited"]
+[connection signal="pressed" from="Food Section/Apple Slot/Apple Button" to="Food Section/Food System Manager" method="_on_apple_button_pressed"]
 [connection signal="mouse_entered" from="Food Section/Blueberry Slot/Blueberry Eat Button" to="Item Info Manager" method="_on_blueberry_eat_button_mouse_entered"]
 [connection signal="mouse_exited" from="Food Section/Blueberry Slot/Blueberry Eat Button" to="Item Info Manager" method="_on_blueberry_eat_button_mouse_exited"]
 [connection signal="pressed" from="Food Section/Blueberry Slot/Blueberry Eat Button" to="Food Section/Food System Manager" method="_on_blueberry_eat_button_pressed"]
