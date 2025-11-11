@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bipvivp30ynpa"]
+
+[ext_resource type="Texture2D" uid="uid://cnqbyswouktcv" path="res://Textures/Apple.png" id="1_21unr"]
+[ext_resource type="Script" uid="uid://c034yd4gvhedo" path="res://Scripts/item/item.gd" id="2_8bv5w"]
+
+[resource]
+script = ExtResource("2_8bv5w")
+icon = ExtResource("1_21unr")
+type = 1
+name = "Apple"
+desc = "Instantly heals the player for 10 HP."
+metadata/_custom_type_script = "uid://c034yd4gvhedo"

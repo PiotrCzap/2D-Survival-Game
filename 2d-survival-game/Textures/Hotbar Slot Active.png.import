@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccspurdxgsuv2"
-path="res://.godot/imported/Inventory Slot.png-4a60ca0a20ee01cf2988e1cf921c80cf.ctex"
+uid="uid://b3al5xajip0xd"
+path="res://.godot/imported/Hotbar Slot Active.png-c9a517e5c052942a83b9dc5d9a4a1d5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory Slot.png"
-dest_files=["res://.godot/imported/Inventory Slot.png-4a60ca0a20ee01cf2988e1cf921c80cf.ctex"]
+source_file="res://Textures/Hotbar Slot Active.png"
+dest_files=["res://.godot/imported/Hotbar Slot Active.png-c9a517e5c052942a83b9dc5d9a4a1d5d.ctex"]
 
 [params]
 

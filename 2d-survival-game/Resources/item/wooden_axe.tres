@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://oknws7bk0hd6"]
+
+[ext_resource type="Texture2D" uid="uid://chsmggu2gvvfw" path="res://Textures/Axe1.png" id="1_kqubw"]
+[ext_resource type="Script" uid="uid://c034yd4gvhedo" path="res://Scripts/item/item.gd" id="1_qx712"]
+
+[resource]
+script = ExtResource("1_qx712")
+icon = ExtResource("1_kqubw")
+type = 2
+name = "Wooden Axe"
+desc = "Basic tool."
+metadata/_custom_type_script = "uid://c034yd4gvhedo"

@@ -1,0 +1,222 @@
+[gd_scene load_steps=11 format=3 uid="uid://d83sdc0b0sfv"]
+
+[ext_resource type="Script" uid="uid://wyv6x8fcrcep" path="res://Scripts/ui/inventory/inventory.gd" id="1_gigny"]
+[ext_resource type="Texture2D" uid="uid://bgphdjscs334f" path="res://Textures/Inventory background.png" id="1_lfv3a"]
+[ext_resource type="Texture2D" uid="uid://byet8hdw4bpkh" path="res://Textures/Inventory Sections Buttons/Materials Section/Materials Inventory Button.png" id="2_ck35p"]
+[ext_resource type="Texture2D" uid="uid://qpq37xv3i7aq" path="res://Textures/Inventory Sections Buttons/Materials Section/Materials Inventory Button pressed.png" id="3_0dubb"]
+[ext_resource type="Texture2D" uid="uid://x4hucgnyb2h1" path="res://Textures/Inventory Sections Buttons/Food Section/Food Inventory Button.png" id="4_evvmy"]
+[ext_resource type="Texture2D" uid="uid://b0xvubrt1v7ps" path="res://Textures/Inventory Sections Buttons/Food Section/Food Inventory Button Pressed.png" id="5_s8uyb"]
+[ext_resource type="Texture2D" uid="uid://ptrl5d44qbo0" path="res://Textures/Inventory Sections Buttons/Tools Section/Tools Section Button1.png" id="6_nffyk"]
+[ext_resource type="Texture2D" uid="uid://8djf4ylelwba" path="res://Textures/Inventory Sections Buttons/Tools Section/Tools Section Button2.png" id="7_levpl"]
+[ext_resource type="LabelSettings" uid="uid://b032rqydghyga" path="res://Label Settings.tres" id="8_levpl"]
+[ext_resource type="PackedScene" uid="uid://dseeo6rk5kcq0" path="res://Scenes/ui/inventory/item_slot.tscn" id="9_hk6h4"]
+
+[node name="inventory" type="Control"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_gigny")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 273
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 273
+theme_override_constants/margin_bottom = 20
+
+[node name="v_box" type="VBoxContainer" parent="margin"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="top_bar" type="Control" parent="margin/v_box"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="bg" type="NinePatchRect" parent="margin/v_box/top_bar"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lfv3a")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="margin" type="MarginContainer" parent="margin/v_box/top_bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="h_box" type="HBoxContainer" parent="margin/v_box/top_bar/margin"]
+layout_mode = 2
+
+[node name="buttons" type="HBoxContainer" parent="margin/v_box/top_bar/margin/h_box"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="button_materials" type="TextureButton" parent="margin/v_box/top_bar/margin/h_box/buttons"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_ck35p")
+texture_pressed = ExtResource("3_0dubb")
+stretch_mode = 4
+
+[node name="button_food" type="TextureButton" parent="margin/v_box/top_bar/margin/h_box/buttons"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_evvmy")
+texture_pressed = ExtResource("5_s8uyb")
+stretch_mode = 4
+
+[node name="button_tools" type="TextureButton" parent="margin/v_box/top_bar/margin/h_box/buttons"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_nffyk")
+texture_pressed = ExtResource("7_levpl")
+stretch_mode = 4
+
+[node name="title" type="HBoxContainer" parent="margin/v_box/top_bar/margin/h_box"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="label" type="Label" parent="margin/v_box/top_bar/margin/h_box/title"]
+layout_mode = 2
+text = "INVENTORY"
+label_settings = ExtResource("8_levpl")
+
+[node name="content" type="Control" parent="margin/v_box"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="bg" type="NinePatchRect" parent="margin/v_box/content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lfv3a")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="margin" type="MarginContainer" parent="margin/v_box/content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 24
+
+[node name="grid_container" type="GridContainer" parent="margin/v_box/content/margin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 9
+theme_override_constants/v_separation = 9
+columns = 8
+
+[node name="item_slot0" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot2" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot3" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot4" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot5" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot6" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot7" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot8" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot9" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot10" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot11" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot12" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot13" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot14" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot15" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot16" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot17" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot18" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot19" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot20" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot21" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot22" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot23" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2
+
+[node name="item_slot24" parent="margin/v_box/content/margin/grid_container" instance=ExtResource("9_hk6h4")]
+layout_mode = 2

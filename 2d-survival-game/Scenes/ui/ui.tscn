@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://brxjpc4wjlx8p"]
+
+[ext_resource type="Script" uid="uid://cef8ach0wfhef" path="res://Scripts/ui/ui_manager.gd" id="1_ag0dx"]
+[ext_resource type="PackedScene" uid="uid://d83sdc0b0sfv" path="res://Scenes/ui/inventory/inventory.tscn" id="1_oak0x"]
+[ext_resource type="PackedScene" uid="uid://4yx422c111lp" path="res://Scenes/ui/hotbar/hotbar.tscn" id="10_mkc3c"]
+
+[node name="ui_manager" type="CanvasLayer"]
+script = ExtResource("1_ag0dx")
+
+[node name="h_box" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="inventory" parent="h_box" instance=ExtResource("1_oak0x")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="hotbar" parent="h_box" instance=ExtResource("10_mkc3c")]
+unique_name_in_owner = true
+layout_mode = 2

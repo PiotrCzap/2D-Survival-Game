@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b8tjxatcqp6cy"]
+
+[ext_resource type="Texture2D" uid="uid://cdwyngtpl3pae" path="res://Textures/Blueberry.png" id="1_ctcvm"]
+[ext_resource type="Script" uid="uid://c034yd4gvhedo" path="res://Scripts/item/item.gd" id="1_ldn2r"]
+
+[resource]
+script = ExtResource("1_ldn2r")
+icon = ExtResource("1_ctcvm")
+type = 1
+name = "Blueberry"
+desc = "Instantly heals the player for 5 HP."
+metadata/_custom_type_script = "uid://c034yd4gvhedo"

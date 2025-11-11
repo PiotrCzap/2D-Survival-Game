@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://4yx422c111lp"]
+
+[ext_resource type="Script" uid="uid://dqg7vjmvd4hg" path="res://Scripts/ui/hotbar/hotbar.gd" id="1_43plo"]
+[ext_resource type="PackedScene" uid="uid://3hugphd3y6mk" path="res://Scenes/ui/hotbar/hotbar_slot.tscn" id="1_uglkn"]
+
+[node name="hotbar" type="Control"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_43plo")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="hotbar_slots" type="HBoxContainer" parent="margin"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="hotbar_slot_00" parent="margin/hotbar_slots" instance=ExtResource("1_uglkn")]
+layout_mode = 2
+
+[node name="hotbar_slot_01" parent="margin/hotbar_slots" instance=ExtResource("1_uglkn")]
+layout_mode = 2
+
+[node name="hotbar_slot_02" parent="margin/hotbar_slots" instance=ExtResource("1_uglkn")]
+layout_mode = 2
+
+[node name="hotbar_slot_03" parent="margin/hotbar_slots" instance=ExtResource("1_uglkn")]
+layout_mode = 2
+
+[node name="hotbar_slot_04" parent="margin/hotbar_slots" instance=ExtResource("1_uglkn")]
+layout_mode = 2
+
+[node name="hotbar_slot_05" parent="margin/hotbar_slots" instance=ExtResource("1_uglkn")]
+layout_mode = 2
+
+[node name="hotbar_slot_06" parent="margin/hotbar_slots" instance=ExtResource("1_uglkn")]
+layout_mode = 2
+
+[node name="hotbar_slot_07" parent="margin/hotbar_slots" instance=ExtResource("1_uglkn")]
+layout_mode = 2
+
+[node name="hotbar_slot_08" parent="margin/hotbar_slots" instance=ExtResource("1_uglkn")]
+layout_mode = 2
+
+[node name="hotbar_slot_09" parent="margin/hotbar_slots" instance=ExtResource("1_uglkn")]
+layout_mode = 2
