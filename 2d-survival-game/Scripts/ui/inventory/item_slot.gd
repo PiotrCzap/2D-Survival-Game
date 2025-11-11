@@ -23,8 +23,15 @@ class_name ItemSlot extends Control
 		label_quantity.text = "%02d" % value
 		label_quantity.show()
 
+func _ready() -> void:
+	clear()
+
 func set_focus() -> void:
 	bg_selected.show()
 
 func reset_focus() -> void:
 	bg_selected.hide()
+	
+func clear() -> void:
+	item_icon.texture = null
+	label_quantity.hide()

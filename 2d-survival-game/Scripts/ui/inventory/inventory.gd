@@ -1,5 +1,6 @@
 class_name Inventory extends Control
 
+@onready var item_manager : ItemManager = GlobalItemManager
 var slots: Array[ItemSlot] = []
 
 var current_index: int:
@@ -12,6 +13,17 @@ func _ready() -> void:
 	slots.assign(%grid_container.get_children())
 	for i in slots.size():
 		slots[i].slot_button.pressed.connect(_on_slot_pressed.bind(i))
+
+func update_inventory_display() -> void:
+	for slot in slots:
+		slot.clear()
+	var i := 0
+	for item in item_manager.items.keys():
+		if i >= slots.size():
+			break
+		slots[i].item = item
+		slots[i].quantity = item_manager.items[item]
+		i += 1
 
 func set_focus() -> void:
 	slots[current_index].set_focus()

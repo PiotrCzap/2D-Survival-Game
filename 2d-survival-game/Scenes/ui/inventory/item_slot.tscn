@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://del03l78txd80" path="res://Scripts/ui/inventory/item_slot.gd" id="1_cxguf"]
 [ext_resource type="Texture2D" uid="uid://ccspurdxgsuv2" path="res://Textures/Inventory Slot.png" id="1_ranjd"]
-[ext_resource type="Texture2D" uid="uid://cnqbyswouktcv" path="res://Textures/Apple.png" id="2_47aue"]
 [ext_resource type="Texture2D" uid="uid://bcn5haj7b0nt" path="res://Textures/Inventory Slot Selected.png" id="3_4t8j3"]
 [ext_resource type="LabelSettings" uid="uid://b032rqydghyga" path="res://Label Settings.tres" id="3_ds26i"]
+[ext_resource type="Texture2D" uid="uid://cws4527jn7y8o" path="res://Textures/Stick.png" id="4_4t8j3"]
 [ext_resource type="Texture2D" uid="uid://dxihik3bg0gcb" path="res://Textures/Item Info.png" id="4_fedpv"]
 
 [node name="item_slot" type="Control"]
@@ -48,10 +48,9 @@ grow_vertical = 2
 
 [node name="item_icon" type="Sprite2D" parent="center"]
 unique_name_in_owner = true
-visible = false
-position = Vector2(31.999998, 31.999998)
-scale = Vector2(3.5, 3.5)
-texture = ExtResource("2_47aue")
+position = Vector2(32, 32)
+scale = Vector2(3, 3)
+texture = ExtResource("4_4t8j3")
 
 [node name="quantity" type="Control" parent="."]
 layout_mode = 1
