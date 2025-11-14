@@ -32,6 +32,7 @@ sources/0 = SubResource("TileSetAtlasSource_3dryh")
 position = Vector2(-1078, 540)
 
 [node name="Player" parent="." instance=ExtResource("1_qxrlw")]
+scale = Vector2(5.105, 5.105)
 
 [node name="Bars" type="Control" parent="Player"]
 layout_mode = 3
@@ -115,7 +116,6 @@ process_callback = 0
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(5, 5)
 position_smoothing_speed = 50.0
 script = ExtResource("2_85qyi")
 
@@ -146,6 +146,7 @@ scale = Vector2(0.8, 0.8)
 [node name="Map" type="Node2D" parent="."]
 
 [node name="Overworld" type="Node2D" parent="Map"]
+visible = false
 
 [node name="Grass Chunks" type="Node2D" parent="Map/Overworld"]
 metadata/_edit_lock_ = true
