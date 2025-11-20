@@ -53,30 +53,46 @@ func _ready() -> void:
 	$"Slot 10".texture = null
 	
 func _process(delta: float) -> void:
+	if Global.selected_slot >= 10:
+		Global.selected_slot = 10
+	if Global.selected_slot <= 0:
+		Global.selected_slot = 1
 	if Input.is_action_just_pressed("scroll up"):
 		$Hotbar.frame += 1
+		Global.selected_slot += 1
 	if Input.is_action_just_pressed("scroll down"):
 		$Hotbar.frame -= 1
+		Global.selected_slot -= 1
 	if Input.is_action_just_pressed("hotbar slot 1"):
 		$Hotbar.frame = 0
+		Global.selected_slot = 1
 	if Input.is_action_just_pressed("hotbar slot 2"):
 		$Hotbar.frame = 1
+		Global.selected_slot = 2
 	if Input.is_action_just_pressed("hotbar slot 3"):
 		$Hotbar.frame = 2
+		Global.selected_slot = 3
 	if Input.is_action_just_pressed("hotbar slot 4"):
 		$Hotbar.frame = 3
+		Global.selected_slot = 4
 	if Input.is_action_just_pressed("hotbar slot 5"):
 		$Hotbar.frame = 4
+		Global.selected_slot = 5
 	if Input.is_action_just_pressed("hotbar slot 6"):
 		$Hotbar.frame = 5
+		Global.selected_slot = 6
 	if Input.is_action_just_pressed("hotbar slot 7"):
 		$Hotbar.frame = 6
+		Global.selected_slot = 7
 	if Input.is_action_just_pressed("hotbar slot 8"):
 		$Hotbar.frame = 7
+		Global.selected_slot = 8
 	if Input.is_action_just_pressed("hotbar slot 9"):
 		$Hotbar.frame = 8
+		Global.selected_slot = 9
 	if Input.is_action_just_pressed("hotbar slot 10"):
 		$Hotbar.frame = 9
+		Global.selected_slot = 10
 	
 	if $"Slot 1".texture == null:
 		$"Slot 1/Slot 1 Quantity".hide()
@@ -122,13 +138,19 @@ func _process(delta: float) -> void:
 func set_slots(slot_number: int, texture: Texture2D):
 	slots[slot_number].texture = texture
 
+func update_slot():
+	if Global.selected_slot == 1:
+		if Global.oak_log_selected == true and Global.all_items[0]:
+			print("jest item")
+			
+
 		
 func _on_slot_1_button_pressed() -> void:
 #region Materials Section
 	if Global.oak_log_selected == true:
 		set_slots(0, oak_log_TEXTURE)
 		slots_quantity[0].text = str(Global.Wood)
-		Global.oak_log_selected == false
+		update_slot()
 		Global.oak_log_selected = true
 	else:
 		Global.oak_log_selected = false

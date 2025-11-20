@@ -14,6 +14,15 @@ extends Node
 
 #----hotbar--------
 
+@export var all_items = [
+	"oak log",
+	"stick",
+	"plank"
+]
+
+
+@export var selected_slot: int = 0
+
 #region Materials Section
 
 @export var oak_log_selected: bool = false
