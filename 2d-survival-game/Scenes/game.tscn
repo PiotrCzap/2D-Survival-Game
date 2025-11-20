@@ -144,9 +144,9 @@ position = Vector2(0, 53.205)
 scale = Vector2(0.8, 0.8)
 
 [node name="Map" type="Node2D" parent="."]
+scale = Vector2(3, 3)
 
 [node name="Overworld" type="Node2D" parent="Map"]
-visible = false
 
 [node name="Grass Chunks" type="Node2D" parent="Map/Overworld"]
 metadata/_edit_lock_ = true

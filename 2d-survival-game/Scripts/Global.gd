@@ -14,11 +14,6 @@ extends Node
 
 #----hotbar--------
 
-@export var oak_log_on_hotbar_selected: bool = false
-@export var stick_on_hotbar_selected: bool = false
-@export var planks_on_hotbar_selected: bool = false
-@export var apple_log_on_hotbar_selected: bool = false
-
 #region Materials Section
 
 @export var oak_log_selected: bool = false

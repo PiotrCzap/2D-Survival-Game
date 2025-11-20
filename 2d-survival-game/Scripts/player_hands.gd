@@ -4,5 +4,7 @@ func _ready() -> void:
 	$"../Hand left/hand left".texture = null
 
 func _process(delta: float) -> void:
-	if Global.oak_log_on_hotbar_selected == true:
-		$"../Hand left/hand left".texture = "res://Textures/Apple.png"
+	if Global.oak_log_selected == true:
+		$"../Hand left/hand left".texture = preload("res://Textures/Oak Log.png")
+	if Global.oak_log_selected == false:
+		$"../Hand left/hand left".texture = null

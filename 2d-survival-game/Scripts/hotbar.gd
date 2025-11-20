@@ -122,21 +122,29 @@ func _process(delta: float) -> void:
 func set_slots(slot_number: int, texture: Texture2D):
 	slots[slot_number].texture = texture
 
-
 		
 func _on_slot_1_button_pressed() -> void:
 #region Materials Section
 	if Global.oak_log_selected == true:
 		set_slots(0, oak_log_TEXTURE)
 		slots_quantity[0].text = str(Global.Wood)
+		Global.oak_log_selected == false
+		Global.oak_log_selected = true
+	else:
 		Global.oak_log_selected = false
+		
 	if Global.stick_selected == true:
 		set_slots(0, stick_TEXTURE)
 		slots_quantity[0].text = str(Global.Sticks)
+		Global.stick_selected = true
+	else:
 		Global.stick_selected = false
+		
 	if Global.plank_selected == true:
 		set_slots(0, plank_TEXTURE)
 		slots_quantity[0].text = str(Global.Planks)
+		Global.plank_selected = true
+	else:
 		Global.plank_selected = false
 #endregion
 		
@@ -144,6 +152,8 @@ func _on_slot_1_button_pressed() -> void:
 	if Global.apple_selected == true:
 		set_slots(0, apple_TEXTURE)
 		slots_quantity[0].text = str(Global.Apples)
+		Global.apple_selected = true
+	else:
 		Global.apple_selected = false
 #endregion
 
@@ -152,14 +162,22 @@ func _on_slot_2_button_pressed() -> void:
 	if Global.oak_log_selected == true:
 		set_slots(1, oak_log_TEXTURE)
 		slots_quantity[1].text = str(Global.Wood)
+		Global.oak_log_selected = true
+	else:
 		Global.oak_log_selected = false
+		
 	if Global.stick_selected == true:
 		set_slots(1, stick_TEXTURE)
 		slots_quantity[1].text = str(Global.Sticks)
+		Global.stick_selected = true
+	else:
 		Global.stick_selected = false
+		
 	if Global.plank_selected == true:
 		set_slots(1, plank_TEXTURE)
 		slots_quantity[1].text = str(Global.Planks)
+		Global.plank_selected = true
+	else:
 		Global.plank_selected = false
 #endregion
 	
@@ -167,6 +185,8 @@ func _on_slot_2_button_pressed() -> void:
 	if Global.apple_selected == true:
 		set_slots(1, apple_TEXTURE)
 		slots_quantity[1].text = str(Global.Apples)
+		Global.apple_selected = true
+	else:
 		Global.apple_selected = false
 #endregion
 	
@@ -176,14 +196,22 @@ func _on_slot_3_button_pressed() -> void:
 	if Global.oak_log_selected == true:
 		set_slots(2, oak_log_TEXTURE)
 		slots_quantity[2].text = str(Global.Wood)
+		Global.oak_log_selected = true
+	else:
 		Global.oak_log_selected = false
+		
 	if Global.stick_selected == true:
 		set_slots(2, stick_TEXTURE)
 		slots_quantity[2].text = str(Global.Sticks)
+		Global.stick_selected = true
+	else:
 		Global.stick_selected = false
+		
 	if Global.plank_selected == true:
 		set_slots(2, plank_TEXTURE)
 		slots_quantity[2].text = str(Global.Planks)
+		Global.plank_selected = true
+	else:
 		Global.plank_selected = false
 #endregion
 	
@@ -191,6 +219,8 @@ func _on_slot_3_button_pressed() -> void:
 	if Global.apple_selected == true:
 		set_slots(2, apple_TEXTURE)
 		slots_quantity[2].text = str(Global.Apples)
+		Global.apple_selected = true
+	else:
 		Global.apple_selected = false
 #endregion
 
@@ -199,14 +229,22 @@ func _on_slot_4_button_pressed() -> void:
 	if Global.oak_log_selected == true:
 		set_slots(3, oak_log_TEXTURE)
 		slots_quantity[3].text = str(Global.Wood)
+		Global.oak_log_selected = true
+	else:
 		Global.oak_log_selected = false
+		
 	if Global.stick_selected == true:
 		set_slots(3, stick_TEXTURE)
 		slots_quantity[3].text = str(Global.Sticks)
+		Global.stick_selected = true
+	else:
 		Global.stick_selected = false
+		
 	if Global.plank_selected == true:
 		set_slots(3, plank_TEXTURE)
 		slots_quantity[3].text = str(Global.Planks)
+		Global.plank_selected = true
+	else:
 		Global.plank_selected = false
 #endregion
 
@@ -214,6 +252,8 @@ func _on_slot_4_button_pressed() -> void:
 	if Global.apple_selected == true:
 		set_slots(3, apple_TEXTURE)
 		slots_quantity[3].text = str(Global.Apples)
+		Global.apple_selected = true
+	else:
 		Global.apple_selected = false
 #endregion
 
@@ -222,14 +262,22 @@ func _on_slot_5_button_pressed() -> void:
 	if Global.oak_log_selected == true:
 		set_slots(4, oak_log_TEXTURE)
 		slots_quantity[4].text = str(Global.Wood)
+		Global.oak_log_selected = true
+	else:
 		Global.oak_log_selected = false
+		
 	if Global.stick_selected == true:
 		set_slots(4, stick_TEXTURE)
 		slots_quantity[4].text = str(Global.Sticks)
+		Global.stick_selected = true
+	else:
 		Global.stick_selected = false
+		
 	if Global.plank_selected == true:
 		set_slots(4, plank_TEXTURE)
 		slots_quantity[4].text = str(Global.Planks)
+		Global.plank_selected = true
+	else:
 		Global.plank_selected = false
 #endregion
 
@@ -237,6 +285,8 @@ func _on_slot_5_button_pressed() -> void:
 	if Global.apple_selected == true:
 		set_slots(4, apple_TEXTURE)
 		slots_quantity[4].text = str(Global.Apples)
+		Global.apple_selected = true
+	else:
 		Global.apple_selected = false
 #endregion
 
@@ -250,10 +300,15 @@ func _on_slot_6_button_pressed() -> void:
 	if Global.stick_selected == true:
 		set_slots(5, stick_TEXTURE)
 		slots_quantity[5].text = str(Global.Sticks)
+		Global.stick_selected = true
+	else:
 		Global.stick_selected = false
+		
 	if Global.plank_selected == true:
 		set_slots(5, plank_TEXTURE)
 		slots_quantity[5].text = str(Global.Planks)
+		Global.plank_selected = true
+	else:
 		Global.plank_selected = false
 #endregion
 
@@ -261,6 +316,8 @@ func _on_slot_6_button_pressed() -> void:
 	if Global.apple_selected == true:
 		set_slots(5, apple_TEXTURE)
 		slots_quantity[5].text = str(Global.Apples)
+		Global.apple_selected = true
+	else:
 		Global.apple_selected = false
 #endregion
 
@@ -269,14 +326,22 @@ func _on_slot_7_button_pressed() -> void:
 	if Global.oak_log_selected == true:
 		set_slots(6, oak_log_TEXTURE)
 		slots_quantity[6].text = str(Global.Wood)
+		Global.oak_log_selected = true
+	else:
 		Global.oak_log_selected = false
+		
 	if Global.stick_selected == true:
 		set_slots(6, stick_TEXTURE)
 		slots_quantity[6].text = str(Global.Sticks)
+		Global.stick_selected = true
+	else:
 		Global.stick_selected = false
+		
 	if Global.plank_selected == true:
 		set_slots(6, plank_TEXTURE)
 		slots_quantity[6].text = str(Global.Planks)
+		Global.plank_selected = true
+	else:
 		Global.plank_selected = false
 #endregion
 
@@ -284,6 +349,8 @@ func _on_slot_7_button_pressed() -> void:
 	if Global.apple_selected == true:
 		set_slots(6, apple_TEXTURE)
 		slots_quantity[6].text = str(Global.Apples)
+		Global.apple_selected = true
+	else:
 		Global.apple_selected = false
 #endregion
 
@@ -293,14 +360,22 @@ func _on_slot_8_button_pressed() -> void:
 	if Global.oak_log_selected == true:
 		set_slots(7, oak_log_TEXTURE)
 		slots_quantity[7].text = str(Global.Wood)
+		Global.oak_log_selected = true
+	else:
 		Global.oak_log_selected = false
+		
 	if Global.stick_selected == true:
 		set_slots(7, stick_TEXTURE)
 		slots_quantity[7].text = str(Global.Sticks)
+		Global.stick_selected = true
+	else:
 		Global.stick_selected = false
+		
 	if Global.plank_selected == true:
 		set_slots(7, plank_TEXTURE)
 		slots_quantity[7].text = str(Global.Planks)
+		Global.plank_selected = true
+	else:
 		Global.plank_selected = false
 #endregion
 
@@ -308,7 +383,9 @@ func _on_slot_8_button_pressed() -> void:
 	if Global.apple_selected == true:
 		set_slots(7, apple_TEXTURE)
 		slots_quantity[7].text = str(Global.Apples)
-		Global.apple_selected = false	
+		Global.apple_selected = true
+	else:
+		Global.apple_selected = false
 #endregion
 
 func _on_slot_9_button_pressed() -> void:
@@ -316,14 +393,22 @@ func _on_slot_9_button_pressed() -> void:
 	if Global.oak_log_selected == true:
 		set_slots(8, oak_log_TEXTURE)
 		slots_quantity[8].text = str(Global.Wood)
+		Global.oak_log_selected = true
+	else:
 		Global.oak_log_selected = false
+		
 	if Global.stick_selected == true:
 		set_slots(8, stick_TEXTURE)
 		slots_quantity[8].text = str(Global.Sticks)
+		Global.stick_selected = true
+	else:
 		Global.stick_selected = false
+		
 	if Global.plank_selected == true:
 		set_slots(8, plank_TEXTURE)
 		slots_quantity[8].text = str(Global.Planks)
+		Global.plank_selected = true
+	else:
 		Global.plank_selected = false
 #endregion
 
@@ -331,6 +416,8 @@ func _on_slot_9_button_pressed() -> void:
 	if Global.apple_selected == true:
 		set_slots(8, apple_TEXTURE)
 		slots_quantity[8].text = str(Global.Apples)
+		Global.apple_selected = true
+	else:
 		Global.apple_selected = false
 #endregion
 
@@ -339,14 +426,22 @@ func _on_slot_10_button_pressed() -> void:
 	if Global.oak_log_selected == true:
 		set_slots(9, oak_log_TEXTURE)
 		slots_quantity[9].text = str(Global.Wood)
+		Global.oak_log_selected = true
+	else:
 		Global.oak_log_selected = false
+		
 	if Global.stick_selected == true:
 		set_slots(9, stick_TEXTURE)
 		slots_quantity[9].text = str(Global.Sticks)
+		Global.stick_selected = true
+	else:
 		Global.stick_selected = false
+		
 	if Global.plank_selected == true:
 		set_slots(9, plank_TEXTURE)
 		slots_quantity[9].text = str(Global.Planks)
+		Global.plank_selected = true
+	else:
 		Global.plank_selected = false
 #endregion
 
@@ -354,5 +449,7 @@ func _on_slot_10_button_pressed() -> void:
 	if Global.apple_selected == true:
 		set_slots(9, apple_TEXTURE)
 		slots_quantity[9].text = str(Global.Apples)
+		Global.apple_selected = true
+	else:
 		Global.apple_selected = false
 #endregion
