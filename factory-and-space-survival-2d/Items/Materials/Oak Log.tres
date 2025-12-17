@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dbyxi3x1ihf08"]
+
+[ext_resource type="Script" uid="uid://d0474f3yum2t1" path="res://Scripts/Inventory Scripts/Item.gd" id="1_he703"]
+[ext_resource type="Texture2D" uid="uid://qu4xofsp7h5c" path="res://Textures/Oak Log.png" id="2_5w7lj"]
+
+[resource]
+script = ExtResource("1_he703")
+Name = "Oak log"
+texture = ExtResource("2_5w7lj")
+Type = "Material"
+metadata/_custom_type_script = "uid://d0474f3yum2t1"

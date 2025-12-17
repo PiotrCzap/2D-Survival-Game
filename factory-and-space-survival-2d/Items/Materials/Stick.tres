@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cn2y81m42tiqm"]
+
+[ext_resource type="Script" uid="uid://d0474f3yum2t1" path="res://Scripts/Inventory Scripts/Item.gd" id="1_anx8o"]
+[ext_resource type="Texture2D" uid="uid://dah7tav1n4wg" path="res://Textures/Stick.png" id="2_w4shv"]
+
+[resource]
+script = ExtResource("1_anx8o")
+texture = ExtResource("2_w4shv")
+Type = "Material"
+metadata/_custom_type_script = "uid://d0474f3yum2t1"

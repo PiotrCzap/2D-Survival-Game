@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://mw72w34ekd6r"]
+
+[ext_resource type="Script" uid="uid://dyg7djjbhvaye" path="res://Scripts/Inventory Scripts/slot.gd" id="1_67ou1"]
+[ext_resource type="Texture2D" uid="uid://d1js102ybqjyl" path="res://Textures/Inventory Slot.png" id="2_c828r"]
+[ext_resource type="LabelSettings" uid="uid://d1ogrtgx1asar" path="res://slot.tres" id="3_67ou1"]
+
+[node name="Slot" type="Control"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 24.0
+offset_bottom = 24.0
+script = ExtResource("1_67ou1")
+
+[node name="Slot background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_c828r")
+
+[node name="Item Texture" type="Sprite2D" parent="Slot background"]
+position = Vector2(20, 20)
+scale = Vector2(1.75, 1.75)
+
+[node name="Item Quantity" type="Label" parent="Slot background"]
+layout_mode = 0
+offset_left = 2.000002
+offset_top = 24.000002
+offset_right = 54.0
+offset_bottom = 47.0
+scale = Vector2(0.7, 0.7)
+label_settings = ExtResource("3_67ou1")
+horizontal_alignment = 2
+vertical_alignment = 2

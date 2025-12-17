@@ -1,0 +1,213 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5wanc5es5nbj"]
+
+[ext_resource type="Texture2D" uid="uid://etpx3o7wtvl0" path="res://Textures/Inventory Background.png" id="1_yxepq"]
+[ext_resource type="LabelSettings" uid="uid://d1ogrtgx1asar" path="res://slot.tres" id="2_0n8tc"]
+[ext_resource type="PackedScene" uid="uid://mw72w34ekd6r" path="res://Scenes/slot.tscn" id="3_yxepq"]
+[ext_resource type="Resource" uid="uid://cn2y81m42tiqm" path="res://Items/Materials/Stick.tres" id="5_k1vlg"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="inventory bg" type="NinePatchRect" parent="UI"]
+offset_left = 282.0
+offset_top = 173.0
+offset_right = 885.0
+offset_bottom = 434.0
+texture = ExtResource("1_yxepq")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="UI/inventory bg"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 105.0
+offset_bottom = 31.0
+text = "INVENTORY"
+label_settings = ExtResource("2_0n8tc")
+
+[node name="inventory" type="GridContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.30002
+offset_top = -121.0
+offset_right = -11.300049
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.175, 2.175)
+columns = 10
+
+[node name="Slot" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+item = ExtResource("5_k1vlg")
+quantity = 100
+
+[node name="Slot2" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot3" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot4" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot5" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot6" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot7" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot8" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot9" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot10" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot11" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot12" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot13" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot14" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot15" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot16" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot17" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot18" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot19" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot20" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot21" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot22" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot23" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot24" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot25" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot26" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot27" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot28" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot29" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot30" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot31" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot32" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot33" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot34" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot35" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot36" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot37" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot38" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot39" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot40" parent="UI/inventory" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="hotbar" type="HBoxContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -317.0
+offset_top = -65.00006
+offset_right = -41.0
+offset_bottom = -41.00006
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.365, 2.365)
+
+[node name="Slot" parent="UI/hotbar" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot2" parent="UI/hotbar" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot3" parent="UI/hotbar" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot4" parent="UI/hotbar" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot5" parent="UI/hotbar" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot6" parent="UI/hotbar" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot7" parent="UI/hotbar" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot8" parent="UI/hotbar" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot9" parent="UI/hotbar" instance=ExtResource("3_yxepq")]
+layout_mode = 2
+
+[node name="Slot10" parent="UI/hotbar" instance=ExtResource("3_yxepq")]
+layout_mode = 2
